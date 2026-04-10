@@ -58,3 +58,21 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./service-worker.js').catch(() => {});
   });
 }
+
+
+const splash = document.getElementById('splash');
+
+function hideSplash() {
+  if (!splash) return;
+  requestAnimationFrame(() => {
+    splash.classList.add('is-hidden');
+    setTimeout(() => {
+      splash.remove();
+    }, 760);
+  });
+}
+
+window.addEventListener('load', () => {
+  const minSplashTime = 1150;
+  setTimeout(hideSplash, minSplashTime);
+});
