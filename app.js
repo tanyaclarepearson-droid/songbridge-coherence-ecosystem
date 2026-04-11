@@ -119,3 +119,50 @@ function openWaysModal() {
 function closeWaysModal() {
   document.getElementById("waysModal").classList.remove("open");
 }
+function attachSheetSwipe(modalId, closeFn) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+
+  const sheet = modal.querySelector('.start-here-content');
+  if (!sheet) return;
+
+  let startY = 0;
+  let currentY = 0;
+  let isDragging = false;
+
+  function onTouchStart(e) {
+    if (!modal.classList.contains('open')) return;
+    startY = e.touches[0].clientY;
+    currentY = startY;
+    isDragging = true;
+    sheet.classList.add('is-dragging');
+  }
+
+  function onTouchMove(e) {
+    if (!isDragging) return;
+
+    currentY = e.touches[0].clientY;
+    const deltaY = Math.max(0, currentY - startY);
+
+    sheet.style.transform = `translateY(${deltaY}px)`;
+  }
+
+  function onTouchEnd() {
+    if (!isDragging) return;
+
+    const deltaY = Math.max(0, currentY - startY);
+    isDragging = false;
+    sheet.classList.remove('is-dragging');
+
+    if (deltaY > 120) {
+      sheet.style.transform = '';
+      closeFn();
+    } else {
+      sheet.style.transform = '';
+    }
+  }
+
+  sheet.addEventListener('touchstart', onTouchStart, { passive: true });
+  sheet.addEventListener('touchmove', onTouchMove, { passive: true });
+  sheet.addEventListener('touchend', onTouchEnd);
+}
