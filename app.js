@@ -196,7 +196,10 @@ function openRandomSongModal() {
 
   // Delay before opening modal
   setTimeout(() => {
+  button.classList.remove('is-pressed');
+
+  requestAnimationFrame(() => {
     openers[randomIndex]();
-    button.classList.remove('is-pressed');
-  }, 150);
-}
+  });
+
+}, 150);
