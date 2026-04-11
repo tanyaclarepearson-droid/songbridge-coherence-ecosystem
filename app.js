@@ -212,5 +212,5 @@ function openRandomSongModal() {
       button.innerHTML = originalText;
     });
 
-  }, 150);
+  }, 220);
 }
