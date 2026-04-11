@@ -783,3 +783,6 @@ button:active {
 #voiceModal .start-here-content {
   background: #fffdf8;
 }
+.start-here-content p {
+  line-height: 1.6;
+}
