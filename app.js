@@ -178,3 +178,15 @@ attachSheetSwipe('breatheModal', closeBreatheModal);
 attachSheetSwipe('voiceModal', closeVoiceModal);
 attachSheetSwipe('superpowersModal', closeSuperpowersModal);
 attachSheetSwipe('waysModal', closeWaysModal);
+function openRandomSongModal() {
+  const openers = [
+    openJoyStaysModal,
+    openBreatheModal,
+    openVoiceModal,
+    openSuperpowersModal,
+    openWaysModal
+  ];
+
+  const randomIndex = Math.floor(Math.random() * openers.length);
+  openers[randomIndex]();
+}
