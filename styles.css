@@ -958,3 +958,38 @@ html {
 .start-somewhere-btn.is-fading {
   opacity: 0.6;
 }
+.start-somewhere-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+/* shimmer layer */
+.start-somewhere-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.35) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-20deg);
+}
+
+/* trigger shimmer */
+.start-somewhere-btn.is-shimmering::after {
+  animation: shimmerSweep 600ms ease;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    left: -120%;
+  }
+  100% {
+    left: 140%;
+  }
+}
