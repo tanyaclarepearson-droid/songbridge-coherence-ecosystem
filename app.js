@@ -114,3 +114,10 @@ function openSuperpowersModal() {
 function closeSuperpowersModal() {
   document.getElementById("superpowersModal").style.display = "none";
 }
+function openWaysModal() {
+  document.getElementById("waysModal").style.display = "block";
+}
+
+function closeWaysModal() {
+  document.getElementById("waysModal").style.display = "none";
+}
