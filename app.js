@@ -77,11 +77,11 @@ window.addEventListener('load', () => {
   setTimeout(hideSplash, minSplashTime);
 });
 function openStartHereModal() {
-  document.getElementById("startHereModal").style.display = "block";
+  document.getElementById("startHereModal").classList.add("open");
 }
 
 function closeStartHereModal() {
-  document.getElementById("startHereModal").style.display = "none";
+  document.getElementById("startHereModal").classList.remove("open");
 }
 function openJoyStaysModal() {
   document.getElementById("joyStaysModal").classList.add("open");
