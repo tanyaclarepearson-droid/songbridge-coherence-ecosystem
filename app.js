@@ -76,3 +76,10 @@ window.addEventListener('load', () => {
   const minSplashTime = 1150;
   setTimeout(hideSplash, minSplashTime);
 });
+function openStartHereModal() {
+  document.getElementById("startHereModal").style.display = "block";
+}
+
+function closeStartHereModal() {
+  document.getElementById("startHereModal").style.display = "none";
+}
