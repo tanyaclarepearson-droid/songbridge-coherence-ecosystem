@@ -168,7 +168,7 @@ function attachSheetSwipe(modalId, closeFn) {
     canDrag = false;
     sheet.classList.remove('is-dragging');
 
-    if (deltaY > 60) {
+    if (deltaY > 100) {
       sheet.style.transform = '';
       closeFn();
     } else {
