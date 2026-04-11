@@ -770,3 +770,6 @@ h2 {
 .featured-entry-card p {
   margin-bottom: 10px;
 }
+button:active {
+  transform: scale(0.98);
+}
