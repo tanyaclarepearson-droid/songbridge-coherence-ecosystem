@@ -998,3 +998,10 @@ html {
     left: 140%;
   }
 }
+.song-section {
+  margin-bottom: 28px;
+}
+
+.song-section + .song-section {
+  margin-top: 8px;
+}
