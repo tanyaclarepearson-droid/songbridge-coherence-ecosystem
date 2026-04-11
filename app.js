@@ -222,10 +222,10 @@ setTimeout(() => {
           // Reset text quietly after modal opens
           button.innerHTML = originalText;
 
-        }, 275); // 👈 inner delay (you can tune this)
+        }, 300); // 👈 inner delay (you can tune this)
       });
 
-    }, 220); // 👈 time to read the new text (tune this)
+    }, 280); // 👈 time to read the new text (tune this)
 
   }, 100); // 👈 fade-out duration (keep short)
 }
