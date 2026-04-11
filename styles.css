@@ -764,9 +764,13 @@ h2 {
   padding: 18px 22px 28px;
   border-radius: 28px 28px 0 0;
   box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.16);
-  transform: translateY(100%);
+  transform: translateY(36px);
   opacity: 0;
-  transition: transform 0.32s ease, opacity 0.32s ease;
+  filter: blur(10px);
+  transition:
+    transform 0.34s ease,
+    opacity 0.34s ease,
+    filter 0.34s ease;
   -webkit-overflow-scrolling: touch;
 }
 
