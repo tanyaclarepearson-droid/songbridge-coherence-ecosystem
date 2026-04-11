@@ -181,7 +181,6 @@ attachSheetSwipe('waysModal', closeWaysModal);
 function openRandomSongModal() {
   const button = document.querySelector('.start-somewhere-btn');
 
-  // Add pressed state
   button.classList.add('is-pressed');
 
   const openers = [
@@ -194,12 +193,12 @@ function openRandomSongModal() {
 
   const randomIndex = Math.floor(Math.random() * openers.length);
 
-  // Delay before opening modal
   setTimeout(() => {
-  button.classList.remove('is-pressed');
+    button.classList.remove('is-pressed');
 
-  requestAnimationFrame(() => {
-    openers[randomIndex]();
-  });
+    requestAnimationFrame(() => {
+      openers[randomIndex]();
+    });
 
-}, 150);
+  }, 150);
+}
