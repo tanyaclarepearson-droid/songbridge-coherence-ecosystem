@@ -185,7 +185,6 @@ function openRandomSongModal() {
   const originalText = button.innerHTML;
 
   button.classList.add('is-pressed');
-  button.innerHTML = "✨ Finding a song…";
 
   const openers = [
     openJoyStaysModal,
@@ -197,14 +196,31 @@ function openRandomSongModal() {
 
   const randomIndex = Math.floor(Math.random() * openers.length);
 
-  setTimeout(() => {
-    button.classList.remove('is-pressed');
+  // ✨ Fade out text
+  button.classList.add('is-fading');
 
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        openers[randomIndex]();
-        button.innerHTML = originalText;
-      }, 120);
-    });
-  }, 150);
+  setTimeout(() => {
+    // ✨ Swap text while faded
+    button.innerHTML = "✨ Finding a song…";
+
+    // ✨ Fade back in
+    button.classList.remove('is-fading');
+
+    // Continue timing sequence
+    setTimeout(() => {
+      button.classList.remove('is-pressed');
+
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          openers[randomIndex]();
+
+          // Reset text quietly after modal opens
+          button.innerHTML = originalText;
+
+        }, 200); // 👈 inner delay (you can tune this)
+      });
+
+    }, 120); // 👈 time to read the new text (tune this)
+
+  }, 100); // 👈 fade-out duration (keep short)
 }
