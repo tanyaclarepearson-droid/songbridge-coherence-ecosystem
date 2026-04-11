@@ -855,7 +855,6 @@ button:active {
   line-height: 1.6;
 }
 .start-here-content {
-  touch-action: none;
   will-change: transform;
 }
 
