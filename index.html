@@ -264,7 +264,9 @@
     <p><strong>Minute 9–10:</strong> “We are ready to learn.”</p>
   </div>
 </div>
-  <div id="joyStaysModal" class="start-here-modal">
+  <div id="joyStaysModal" class="start-here-modal" onclick="closeJoyStaysModal()">
+  <div class="start-here-content" onclick="event.stopPropagation()">
+    <button onclick="closeJoyStaysModal()">✕</button>
   <div class="start-here-content">
     <button onclick="closeJoyStaysModal()">✕</button>
 
