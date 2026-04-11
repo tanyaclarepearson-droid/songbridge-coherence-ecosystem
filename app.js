@@ -119,65 +119,7 @@ function openWaysModal() {
 function closeWaysModal() {
   document.getElementById("waysModal").classList.remove("open");
 }
-function attachSheetSwipe(modalId, closeFn) {
-  const modal = document.getElementById(modalId);
-  if (!modal) return;
 
-  const handle = modal.querySelector('.sheet-handle');
-  const sheet = modal.querySelector('.start-here-content');
-  if (!handle || !sheet) return;
-
-  let startY = 0;
-  let currentY = 0;
-  let dragging = false;
-
-  handle.addEventListener('touchstart', (e) => {
-    if (!modal.classList.contains('open')) return;
-    startY = e.touches[0].clientY;
-    currentY = startY;
-    dragging = true;
-    sheet.classList.add('is-dragging');
-  }, { passive: true });
-
-  handle.addEventListener('touchmove', (e) => {
-    if (!dragging) return;
-
-    currentY = e.touches[0].clientY;
-    const deltaY = Math.max(0, currentY - startY);
-
-    if (deltaY > 0) {
-      e.preventDefault();
-      sheet.style.transform = `translateY(${deltaY}px)`;
-    }
-  }, { passive: false });
-
-  handle.addEventListener('touchend', () => {
-    if (!dragging) return;
-
-    const deltaY = Math.max(0, currentY - startY);
-    dragging = false;
-    sheet.classList.remove('is-dragging');
-
-    sheet.style.transform = 'translateY(100%)';
-setTimeout(() => {
-  sheet.style.transform = '';
-  closeFn();
-}, 120);
-  });
-
-  handle.addEventListener('touchcancel', () => {
-    dragging = false;
-    sheet.classList.remove('is-dragging');
-    sheet.style.transform = '';
-  });
-}
-
-attachSheetSwipe('startHereModal', closeStartHereModal);
-attachSheetSwipe('joyStaysModal', closeJoyStaysModal);
-attachSheetSwipe('breatheModal', closeBreatheModal);
-attachSheetSwipe('voiceModal', closeVoiceModal);
-attachSheetSwipe('superpowersModal', closeSuperpowersModal);
-attachSheetSwipe('waysModal', closeWaysModal);
 function openRandomSongModal() {
   const button = document.querySelector('.start-somewhere-btn');
   if (!button) return;
