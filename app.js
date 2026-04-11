@@ -83,3 +83,34 @@ function openStartHereModal() {
 function closeStartHereModal() {
   document.getElementById("startHereModal").style.display = "none";
 }
+function openJoyStaysModal() {
+  document.getElementById("joyStaysModal").style.display = "block";
+}
+
+function closeJoyStaysModal() {
+  document.getElementById("joyStaysModal").style.display = "none";
+}
+
+function openBreatheModal() {
+  document.getElementById("breatheModal").style.display = "block";
+}
+
+function closeBreatheModal() {
+  document.getElementById("breatheModal").style.display = "none";
+}
+
+function openVoiceModal() {
+  document.getElementById("voiceModal").style.display = "block";
+}
+
+function closeVoiceModal() {
+  document.getElementById("voiceModal").style.display = "none";
+}
+
+function openSuperpowersModal() {
+  document.getElementById("superpowersModal").style.display = "block";
+}
+
+function closeSuperpowersModal() {
+  document.getElementById("superpowersModal").style.display = "none";
+}
