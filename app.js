@@ -123,33 +123,24 @@ function attachSheetSwipe(modalId, closeFn) {
   const modal = document.getElementById(modalId);
   if (!modal) return;
 
+  const handle = modal.querySelector('.sheet-handle');
   const sheet = modal.querySelector('.start-here-content');
-  if (!sheet) return;
+  if (!handle || !sheet) return;
 
   let startY = 0;
   let currentY = 0;
   let dragging = false;
-  let canDrag = false;
 
-  sheet.addEventListener('touchstart', (e) => {
+  handle.addEventListener('touchstart', (e) => {
     if (!modal.classList.contains('open')) return;
-
-    const touchY = e.touches[0].clientY;
-    const rect = sheet.getBoundingClientRect();
-    const fromTopZone = touchY - rect.top < 90;
-    const atTop = sheet.scrollTop <= 0;
-
-    canDrag = fromTopZone && atTop;
-    if (!canDrag) return;
-
-    startY = touchY;
-    currentY = touchY;
+    startY = e.touches[0].clientY;
+    currentY = startY;
     dragging = true;
     sheet.classList.add('is-dragging');
   }, { passive: true });
 
-  sheet.addEventListener('touchmove', (e) => {
-    if (!dragging || !canDrag) return;
+  handle.addEventListener('touchmove', (e) => {
+    if (!dragging) return;
 
     currentY = e.touches[0].clientY;
     const deltaY = Math.max(0, currentY - startY);
@@ -160,28 +151,26 @@ function attachSheetSwipe(modalId, closeFn) {
     }
   }, { passive: false });
 
-  sheet.addEventListener('touchend', () => {
+  handle.addEventListener('touchend', () => {
     if (!dragging) return;
 
     const deltaY = Math.max(0, currentY - startY);
     dragging = false;
-    canDrag = false;
     sheet.classList.remove('is-dragging');
 
-    if (deltaY > 60) {
+    if (deltaY > 50) {
       sheet.style.transform = 'translateY(100%)';
-  setTimeout(() => {
-    sheet.style.transform = '';
-    closeFn();
-  }, 120);
-} else {
-  sheet.style.transform = '';
-}
+      setTimeout(() => {
+        sheet.style.transform = '';
+        closeFn();
+      }, 120);
+    } else {
+      sheet.style.transform = '';
+    }
   });
 
-  sheet.addEventListener('touchcancel', () => {
+  handle.addEventListener('touchcancel', () => {
     dragging = false;
-    canDrag = false;
     sheet.classList.remove('is-dragging');
     sheet.style.transform = '';
   });
