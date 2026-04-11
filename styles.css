@@ -854,3 +854,11 @@ button:active {
 .start-here-content p {
   line-height: 1.6;
 }
+.start-here-content {
+  touch-action: none;
+  will-change: transform;
+}
+
+.start-here-content.is-dragging {
+  transition: none !important;
+}
