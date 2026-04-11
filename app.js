@@ -179,6 +179,11 @@ attachSheetSwipe('voiceModal', closeVoiceModal);
 attachSheetSwipe('superpowersModal', closeSuperpowersModal);
 attachSheetSwipe('waysModal', closeWaysModal);
 function openRandomSongModal() {
+  const button = document.querySelector('.start-somewhere-btn');
+
+  // Add pressed state
+  button.classList.add('is-pressed');
+
   const openers = [
     openJoyStaysModal,
     openBreatheModal,
@@ -188,5 +193,10 @@ function openRandomSongModal() {
   ];
 
   const randomIndex = Math.floor(Math.random() * openers.length);
-  openers[randomIndex]();
+
+  // Delay before opening modal
+  setTimeout(() => {
+    openers[randomIndex]();
+    button.classList.remove('is-pressed');
+  }, 150);
 }
