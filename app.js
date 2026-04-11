@@ -3,7 +3,7 @@ const bottomLinks = [...document.querySelectorAll('.bottom-link')];
 const allNav = [...navLinks, ...bottomLinks];
 const sections = [...document.querySelectorAll('main section[id]')];
 
-const cardButtons = document.querySelectorAll('.product-card');
+const cardButtons = document.querySelectorAll('.drawer-card');
 const drawer = document.querySelector('.drawer');
 const backdrop = document.querySelector('.drawer-backdrop');
 const closeBtn = document.querySelector('.drawer-close');
