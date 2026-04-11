@@ -935,3 +935,6 @@ button:active {
 .needs-btn:active {
   transform: scale(0.96);
 }
+html {
+  scroll-behavior: smooth;
+}
