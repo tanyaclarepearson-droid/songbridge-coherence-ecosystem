@@ -841,19 +841,11 @@ h2 {
 button:active {
   transform: scale(0.98);
 }
-.start-here-content h2 {
-  margin-bottom: 8px;
-}
 
-.start-here-content p {
-  margin: 6px 0;
-}
 #voiceModal .start-here-content {
   background: #fffdf8;
 }
-.start-here-content p {
-  line-height: 1.6;
-}
+
 .start-here-content {
   will-change: transform;
 }
