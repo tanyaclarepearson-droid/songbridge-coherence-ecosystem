@@ -307,8 +307,8 @@
   </div>
 </div>
 
-<div id="breatheModal" class="start-here-modal">
-  <div class="start-here-content">
+<div id="breatheModal" class="start-here-modal" onclick="closeBreatheModal()">
+  <div class="start-here-content" onclick="event.stopPropagation()">
     <button onclick="closeBreatheModal()">✕</button>
 
     <h2>Breathe Me Back to Center</h2>
@@ -348,8 +348,8 @@
   </div>
 </div>
 
-<div id="voiceModal" class="start-here-modal">
-  <div class="start-here-content">
+<div id="voiceModal" class="start-here-modal" onclick="closeVoiceModal()">
+  <div class="start-here-content" onclick="event.stopPropagation()">
     <button onclick="closeVoiceModal()">✕</button>
 
     <h2>Every Voice Belongs</h2>
@@ -390,8 +390,8 @@
   </div>
 </div>
 
-<div id="superpowersModal" class="start-here-modal">
-  <div class="start-here-content">
+<div id="superpowersModal" class="start-here-modal" onclick="SuperpowersModal()">
+  <div class="start-here-content" onclick="event.stopPropagation()">
     <button onclick="closeSuperpowersModal()">✕</button>
 
     <h2>Languages Are Our Superpowers</h2>
@@ -429,8 +429,8 @@
     </p>
   </div>
 </div>
-  <div id="waysModal" class="start-here-modal">
-  <div class="start-here-content">
+ <div id="waysModal" class="start-here-modal" onclick="closeWaysModal()">
+  <div class="start-here-content" onclick="event.stopPropagation()">
     <button onclick="closeWaysModal()">✕</button>
 
     <h2>Many Ways Forward</h2>
