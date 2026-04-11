@@ -947,3 +947,14 @@ html {
   opacity: 0.85;
   box-shadow: 0 6px 12px rgba(55, 91, 106, 0.12);
 }
+.start-somewhere-btn {
+  transition: 
+    transform 0.18s ease, 
+    opacity 0.18s ease, 
+    box-shadow 0.18s ease;
+}
+
+/* NEW: text fade */
+.start-somewhere-btn.is-fading {
+  opacity: 0.6;
+}
