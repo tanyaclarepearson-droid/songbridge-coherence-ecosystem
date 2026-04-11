@@ -202,7 +202,12 @@ function openRandomSongModal() {
   setTimeout(() => {
     // ✨ Swap text while faded
     button.innerHTML = "✨ Finding a song…";
+button.classList.add('is-shimmering');
 
+// remove class after animation completes
+setTimeout(() => {
+  button.classList.remove('is-shimmering');
+}, 600);
     // ✨ Fade back in
     button.classList.remove('is-fading');
 
