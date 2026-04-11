@@ -743,16 +743,84 @@ h2 {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(22, 33, 43, 0.38);
   z-index: 1000;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+}
+
+.start-here-modal.open {
+  display: flex;
 }
 
 .start-here-content {
-  background: white;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 20px;
-  max-width: 400px;
+  position: relative;
+  background: #ffffff;
+  width: 100%;
+  max-width: 720px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 18px 22px 28px;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.16);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.32s ease, opacity 0.32s ease;
+  -webkit-overflow-scrolling: touch;
+}
+
+.start-here-modal.open .start-here-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.start-here-content::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 5px;
+  border-radius: 999px;
+  background: #d7dbe0;
+  margin: 0 auto 16px auto;
+}
+
+.start-here-content button {
+  border: 0;
+}
+
+.start-here-content h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.start-here-content p {
+  line-height: 1.6;
+}
+
+.start-here-content > button:first-of-type {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #f2f4f7;
+  color: #2d4656;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@media (min-width: 721px) {
+  .start-here-modal {
+    padding: 24px;
+  }
+
+  .start-here-content {
+    border-radius: 28px;
+    max-width: 640px;
+    margin-bottom: 0;
+  }
 }
 .featured-entry-card {
   background: rgba(255,255,255,0.95);
