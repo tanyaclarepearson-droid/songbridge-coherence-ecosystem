@@ -128,30 +128,32 @@ function attachSheetSwipe(modalId, closeFn) {
 
   let startY = 0;
   let currentY = 0;
-  let isDragging = false;
+  let dragging = false;
 
-  function onTouchStart(e) {
+  sheet.addEventListener('touchstart', (e) => {
     if (!modal.classList.contains('open')) return;
     startY = e.touches[0].clientY;
     currentY = startY;
-    isDragging = true;
+    dragging = true;
     sheet.classList.add('is-dragging');
-  }
+  }, { passive: true });
 
-  function onTouchMove(e) {
-    if (!isDragging) return;
+  sheet.addEventListener('touchmove', (e) => {
+    if (!dragging) return;
 
     currentY = e.touches[0].clientY;
-    const deltaY = Math.max(0, currentY - startY);
+    const deltaY = currentY - startY;
 
-    sheet.style.transform = `translateY(${deltaY}px)`;
-  }
+    if (deltaY > 0) {
+      sheet.style.transform = `translateY(${deltaY}px)`;
+    }
+  }, { passive: true });
 
-  function onTouchEnd() {
-    if (!isDragging) return;
+  sheet.addEventListener('touchend', () => {
+    if (!dragging) return;
 
-    const deltaY = Math.max(0, currentY - startY);
-    isDragging = false;
+    const deltaY = currentY - startY;
+    dragging = false;
     sheet.classList.remove('is-dragging');
 
     if (deltaY > 120) {
@@ -160,12 +162,9 @@ function attachSheetSwipe(modalId, closeFn) {
     } else {
       sheet.style.transform = '';
     }
-  }
-
-  sheet.addEventListener('touchstart', onTouchStart, { passive: true });
-  sheet.addEventListener('touchmove', onTouchMove, { passive: true });
-  sheet.addEventListener('touchend', onTouchEnd);
+  });
 }
+
 attachSheetSwipe('startHereModal', closeStartHereModal);
 attachSheetSwipe('joyStaysModal', closeJoyStaysModal);
 attachSheetSwipe('breatheModal', closeBreatheModal);
