@@ -780,3 +780,6 @@ button:active {
 .start-here-content p {
   margin: 6px 0;
 }
+#voiceModal .start-here-content {
+  background: #fffdf8;
+}
