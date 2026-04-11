@@ -169,11 +169,14 @@ function attachSheetSwipe(modalId, closeFn) {
     sheet.classList.remove('is-dragging');
 
     if (deltaY > 60) {
-      sheet.style.transform = '';
-      closeFn();
-    } else {
-      sheet.style.transform = '';
-    }
+      sheet.style.transform = 'translateY(100%)';
+  setTimeout(() => {
+    sheet.style.transform = '';
+    closeFn();
+  }, 120);
+} else {
+  sheet.style.transform = '';
+}
   });
 
   sheet.addEventListener('touchcancel', () => {
