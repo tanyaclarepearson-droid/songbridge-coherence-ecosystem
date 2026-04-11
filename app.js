@@ -92,32 +92,30 @@ function closeJoyStaysModal() {
 }
 
 function openBreatheModal() {
-  document.getElementById("breatheModal").style.display = "block";
+  document.getElementById("breatheModal").classList.add("open");
 }
 
 function closeBreatheModal() {
-  document.getElementById("breatheModal").style.display = "none";
+  document.getElementById("breatheModal").classList.remove("open");
 }
-
 function openVoiceModal() {
-  document.getElementById("voiceModal").style.display = "block";
+  document.getElementById("voiceModal").classList.add("open");
 }
 
 function closeVoiceModal() {
-  document.getElementById("voiceModal").style.display = "none";
+  document.getElementById("voiceModal").classList.remove("open");
 }
-
 function openSuperpowersModal() {
-  document.getElementById("superpowersModal").style.display = "block";
+  document.getElementById("superpowersModal").classList.add("open");
 }
 
 function closeSuperpowersModal() {
-  document.getElementById("superpowersModal").style.display = "none";
+  document.getElementById("superpowersModal").classList.remove("open");
 }
 function openWaysModal() {
-  document.getElementById("waysModal").style.display = "block";
+  document.getElementById("waysModal").classList.add("open");
 }
 
 function closeWaysModal() {
-  document.getElementById("waysModal").style.display = "none";
+  document.getElementById("waysModal").classList.remove("open");
 }
