@@ -84,11 +84,11 @@ function closeStartHereModal() {
   document.getElementById("startHereModal").style.display = "none";
 }
 function openJoyStaysModal() {
-  document.getElementById("joyStaysModal").style.display = "block";
+  document.getElementById("joyStaysModal").classList.add("open");
 }
 
 function closeJoyStaysModal() {
-  document.getElementById("joyStaysModal").style.display = "none";
+  document.getElementById("joyStaysModal").classList.remove("open");
 }
 
 function openBreatheModal() {
