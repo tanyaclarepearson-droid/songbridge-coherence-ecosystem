@@ -180,14 +180,11 @@ attachSheetSwipe('superpowersModal', closeSuperpowersModal);
 attachSheetSwipe('waysModal', closeWaysModal);
 function openRandomSongModal() {
   const button = document.querySelector('.start-somewhere-btn');
+  if (!button) return;
 
-  // Save original text
   const originalText = button.innerHTML;
 
-  // Press state
   button.classList.add('is-pressed');
-
-  // Change text
   button.innerHTML = "✨ Finding a song…";
 
   const openers = [
@@ -201,16 +198,13 @@ function openRandomSongModal() {
   const randomIndex = Math.floor(Math.random() * openers.length);
 
   setTimeout(() => {
-    // Restore button visually first
     button.classList.remove('is-pressed');
 
     requestAnimationFrame(() => {
-      // Open modal
-      openers[randomIndex]();
-
-      // Restore text AFTER modal opens
-      button.innerHTML = originalText;
+      setTimeout(() => {
+        openers[randomIndex]();
+        button.innerHTML = originalText;
+      }, 120);
     });
-
-  }, 220);
+  }, 150);
 }
