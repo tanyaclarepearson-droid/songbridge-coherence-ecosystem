@@ -932,3 +932,6 @@ button:active {
   color: #5b7480;
   font-size: 0.92rem;
 }
+.needs-btn:active {
+  transform: scale(0.96);
+}
