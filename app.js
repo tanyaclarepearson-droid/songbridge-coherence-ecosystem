@@ -166,3 +166,9 @@ function attachSheetSwipe(modalId, closeFn) {
   sheet.addEventListener('touchmove', onTouchMove, { passive: true });
   sheet.addEventListener('touchend', onTouchEnd);
 }
+attachSheetSwipe('startHereModal', closeStartHereModal);
+attachSheetSwipe('joyStaysModal', closeJoyStaysModal);
+attachSheetSwipe('breatheModal', closeBreatheModal);
+attachSheetSwipe('voiceModal', closeVoiceModal);
+attachSheetSwipe('superpowersModal', closeSuperpowersModal);
+attachSheetSwipe('waysModal', closeWaysModal);
