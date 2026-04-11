@@ -1016,3 +1016,9 @@ html {
 .voice h3 { color: #c89b5a; }
 .identity h3 { color: #6aa3a8; }
 .agency h3 { color: #7aa86f; }
+.flow-line {
+  font-size: 14px;
+  color: #7a8a92;
+  text-align: center;
+  margin: 12px 0;
+}
