@@ -252,9 +252,12 @@
   <script src="app.js"></script>
  
 </div>
-  <div id="startHereModal" class="start-here-modal">
-  <div class="start-here-content">
+  <div id="startHereModal" class="start-here-modal" onclick="closeStartHereModal()">
+  <div class="start-here-content" onclick="event.stopPropagation()">
     <button onclick="closeStartHereModal()">✕</button>
+    ...
+  </div>
+</div>
 
     <h2>10-Minute Classroom Reset</h2>
 
