@@ -1011,3 +1011,8 @@ html {
   margin: 8px 0 16px;
   border-radius: 12px;
 }
+.regulation h3 { color: #6f8f9a; }
+.joy h3 { color: #d4a94f; }
+.voice h3 { color: #c89b5a; }
+.identity h3 { color: #6aa3a8; }
+.agency h3 { color: #7aa86f; }
