@@ -777,6 +777,7 @@ h2 {
 .start-here-modal.open .start-here-content {
   transform: translateY(0);
   opacity: 1;
+  filter: blur(0);
 }
 
 .start-here-content button {
