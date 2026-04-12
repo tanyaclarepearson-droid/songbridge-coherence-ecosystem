@@ -120,6 +120,30 @@ function closeWaysModal() {
   document.getElementById("waysModal").classList.remove("open");
 }
 
+function openBeforeAskModal() {
+  document.getElementById("beforeAskModal").classList.add("open");
+}
+
+function closeBeforeAskModal() {
+  document.getElementById("beforeAskModal").classList.remove("open");
+}
+
+function openEchoNameModal() {
+  document.getElementById("echoNameModal").classList.add("open");
+}
+
+function closeEchoNameModal() {
+  document.getElementById("echoNameModal").classList.remove("open");
+}
+
+function openFindingWayModal() {
+  document.getElementById("findingWayModal").classList.add("open");
+}
+
+function closeFindingWayModal() {
+  document.getElementById("findingWayModal").classList.remove("open");
+}
+
 function openRandomSongModal() {
   const button = document.querySelector('.start-somewhere-btn');
   if (!button) return;
