@@ -1007,7 +1007,7 @@ html {
 }
 .flow-divider {
   height: 20px;
-  background: linear-gradient(to bottom, transparent, rgba(120,140,150,0.08), transparent);
+  background: linear-gradient (to bottom,transparent,rgba(120,140,150,0.05),transparent);
   margin: 8px 0 16px;
   border-radius: 12px;
 }
