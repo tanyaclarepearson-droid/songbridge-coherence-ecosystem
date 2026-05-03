@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SongBridge | We Come Back</title>
+
+<style>
+:root {
+  --navy:#071b3a;
+  --teal:#0f8f9c;
+  --blue:#2f80c8;
+  --green:#4f9b52;
+  --purple:#7a5db8;
+  --orange:#f39a18;
+  --aqua:#24a6ad;
+  --cream:#fbfaf6;
+  --soft:#eef8f9;
+  --line:#d9eef1;
+}
+
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, #eaf8fa 0, transparent 32%),
+              linear-gradient(180deg, #ffffff 0%, var(--cream) 100%);
+  color:var(--navy);
+}
+
+.page {
+  max-width:520px;
+  margin:0 auto;
+  padding:28px 20px 36px;
+}
+
+.brand {
+  text-align:center;
+  letter-spacing:.26em;
+  font-weight:800;
+  font-size:1.05rem;
+}
+
+.system {
+  text-align:center;
+  color:var(--teal);
+  font-size:.72rem;
+  letter-spacing:.18em;
+  font-weight:700;
+  margin-top:4px;
+}
+
+.ripple {
+  width:96px;
+  height:96px;
+  border:3px solid rgba(15,143,156,.45);
+  border-radius:50%;
+  margin:18px auto 8px;
+  position:relative;
+  animation:pulse 3s infinite ease-in-out;
+}
+
+.ripple:before,
+.ripple:after {
+  content:"";
+  position:absolute;
+  inset:14px;
+  border:3px solid rgba(15,143,156,.35);
+  border-radius:50%;
+}
+
+.ripple:after { inset:30px; }
+
+@keyframes pulse {
+  0%,100% { transform:scale(1); opacity:.9; }
+  50% { transform:scale(1.04); opacity:1; }
+}
+
+h1 {
+  text-align:center;
+  font-size:2.15rem;
+  margin:12px 0 4px;
+  line-height:1.05;
+}
+
+.subtitle {
+  text-align:center;
+  color:#40566d;
+  font-size:1.05rem;
+  margin:0 0 24px;
+}
+
+.player-card {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:18px;
+  box-shadow:0 12px 30px rgba(7,27,58,.06);
+  margin-bottom:18px;
+}
+
+.now {
+  font-size:.78rem;
+  color:var(--teal);
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+#currentTitle {
+  margin:6px 0 14px;
+  font-size:1.25rem;
+  font-weight:800;
+}
+
+audio {
+  width:100%;
+}
+
+.grid {
+  display:grid;
+  gap:12px;
+}
+
+.version {
+  width:100%;
+  border:none;
+  border-radius:20px;
+  padding:16px 18px;
+  text-align:left;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(7,27,58,.08);
+  transition:.18s transform ease, .18s box-shadow ease;
+}
+
+.version:active {
+  transform:scale(.985);
+}
+
+.version strong {
+  display:block;
+  font-size:1.05rem;
+  margin-bottom:3px;
+}
+
+.version span {
+  display:block;
+  font-size:.88rem;
+  opacity:.94;
+}
+
+.classroom { background:var(--blue); }
+.karaoke { background:var(--green); }
+.regulation { background:var(--purple); }
+.transition { background:var(--orange); }
+.reflection { background:var(--aqua); }
+
+.panel {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:20px;
+  margin-top:16px;
+  overflow:hidden;
+}
+
+.panel button {
+  width:100%;
+  background:white;
+  border:none;
+  padding:16px 18px;
+  text-align:left;
+  font-weight:800;
+  color:var(--navy);
+  font-size:1rem;
+  cursor:pointer;
+}
+
+.panel-content {
+  display:none;
+  padding:0 18px 18px;
+  color:#27384c;
+  line-height:1.55;
+  font-size:.95rem;
+}
+
+.panel.open .panel-content {
+  display:block;
+}
+
+.footer {
+  text-align:center;
+  margin-top:28px;
+  color:var(--teal);
+  font-weight:800;
+  letter-spacing:.08em;
+  font-size:.82rem;
+}
+
+.tagline {
+  text-align:center;
+  margin-top:8px;
+  color:#506276;
+  font-size:.86rem;
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+  <div class="brand">SONGBRIDGE</div>
+  <div class="system">A COHERENCE WORKS SYSTEM</div>
+
+  <div class="ripple"></div>
+
+  <h1>We Come Back</h1>
+  <p class="subtitle">One song. Five ways to use it.</p>
+
+  <section class="player-card">
+    <div class="now">Now Playing</div>
+    <div id="currentTitle">Choose a version below</div>
+    <audio id="player" controls></audio>
+  </section>
+
+  <section class="grid">
+    <button class="version classroom" onclick="playSong('classroom.mp3','🎧 Classroom Version')">
+      <strong>🎧 Classroom Version</strong>
+      <span>Balanced anchor • shared listening • community connection</span>
+    </button>
+
+    <button class="version karaoke" onclick="playSong('karaoke.mp3','🎤 Karaoke Version')">
+      <strong>🎤 Karaoke Version</strong>
+      <span>Student voice • confidence • language production</span>
+    </button>
+
+    <button class="version regulation" onclick="playSong('regulation.mp3','🌊 Regulation Version')">
+      <strong>🌊 Regulation Version</strong>
+      <span>Calm reset • breath • safety</span>
+    </button>
+
+    <button class="version transition" onclick="playSong('transition.mp3','⚡ Transition Version')">
+      <strong>⚡ Transition Version</strong>
+      <span>Movement • focus shift • classroom flow</span>
+    </button>
+
+    <button class="version reflection" onclick="playSong('reflection.mp3','🧠 Reflection Loop')">
+      <strong>🧠 Reflection Loop</strong>
+      <span>Meaning-making • closure • return</span>
+    </button>
+  </section>
+
+  <section class="panel" id="lyricsPanel">
+    <button onclick="togglePanel('lyricsPanel')">Lyrics / Letra</button>
+    <div class="panel-content">
+      <p><strong>Paste final lyrics here.</strong></p>
+      <p>
+        This space can hold the classroom lyrics, bilingual lyrics, or a short chorus-only version for quick use.
+      </p>
+    </div>
+  </section>
+
+  <section class="panel" id="teacherPanel">
+    <button onclick="togglePanel('teacherPanel')">Teacher Notes</button>
+    <div class="panel-content">
+      <p><strong>Suggested use:</strong> Choose the version that fits the moment.</p>
+      <p>
+        Use the classroom version to introduce the song, karaoke for student voice,
+        regulation for calm return, transition for movement, and reflection for closure.
+      </p>
+    </div>
+  </section>
+
+  <div class="footer">SONGBRIDGE</div>
+  <div class="tagline">Simple songs for coherence, language, and return.</div>
+
+</main>
+
+<script>
+function playSong(file, title) {
+  const player = document.getElementById("player");
+  const currentTitle = document.getElementById("currentTitle");
+  player.src = file;
+  currentTitle.textContent = title;
+  player.play();
+}
+
+function togglePanel(id) {
+  document.getElementById(id).classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
