@@ -1,0 +1,1 @@
+Put finished tagged MP3 files here. Connect their filenames in recordings.js at the site root. See README.md.
