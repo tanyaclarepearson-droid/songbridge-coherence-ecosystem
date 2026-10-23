@@ -13,7 +13,7 @@ window.SONGBRIDGE_AUDIO = {
   23: "audio/muchas-formas-de-avanzar-spanish.mp3", // Muchas Formas de Avanzar | Español | suggested: audio/muchas-formas-de-avanzar-spanish.mp3
   5: "", // We Come Back | English | suggested: audio/we-come-back-english.mp3
   6: "", // Breathe Me Back to Center | English | suggested: audio/breathe-me-back-to-center-english.mp3
-  7: "", // Brighter Than Before | English | suggested: audio/brighter-than-before-english.mp3
+  7: "audio/brighter-than-before-english.mp3", // Brighter Than Before | English | suggested: audio/brighter-than-before-english.mp3
   8: "", // Pass It On | English | suggested: audio/pass-it-on-english.mp3
   9: "", // Echo of My Name | English + Español | suggested: audio/echo-of-my-name-bilingual.mp3
   10: "", // The Language Dance | English | suggested: audio/the-language-dance-english.mp3
