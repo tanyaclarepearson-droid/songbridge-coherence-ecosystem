@@ -10,7 +10,7 @@ window.SONGBRIDGE_AUDIO = {
   22: "", // Mariposa | English | suggested: audio/mariposa-english.mp3
   3: "", // Every Voice Belongs | English | suggested: audio/every-voice-belongs-english.mp3
   4: "", // Many Ways Forward | English | suggested: audio/many-ways-forward-english.mp3
-  23: "", // Muchas Formas de Avanzar | Español | suggested: audio/muchas-formas-de-avanzar-spanish.mp3
+  23: "audio/muchas-formas-de-avanzar-spanish.mp3", // Muchas Formas de Avanzar | Español | suggested: audio/muchas-formas-de-avanzar-spanish.mp3
   5: "", // We Come Back | English | suggested: audio/we-come-back-english.mp3
   6: "", // Breathe Me Back to Center | English | suggested: audio/breathe-me-back-to-center-english.mp3
   7: "", // Brighter Than Before | English | suggested: audio/brighter-than-before-english.mp3
