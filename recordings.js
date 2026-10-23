@@ -2,7 +2,7 @@
 // Example: 0: "audio/i-am-me-english.mp3",
 // Keep the comma at the end of every line. Leave unfinished songs empty.
 window.SONGBRIDGE_AUDIO = {
-  0: "", // I Am Me | English | suggested: audio/i-am-me-english.mp3
+  0: "audio/i-am-me.mp3", // I Am Me | English | suggested: audio/i-am-me-english.mp3
   1: "", // Not Yet, Still Here | English | suggested: audio/not-yet-still-here-english.mp3
   20: "", // Aún No, Sigo Aquí | Español | suggested: audio/a-n-no-sigo-aqu-spanish.mp3
   2: "", // Mariposa | English + Español | suggested: audio/mariposa-bilingual.mp3
