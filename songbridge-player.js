@@ -163,9 +163,9 @@ document.addEventListener('songbridge:queuechange',()=>{
 function enhance(a){
  if(players.has(a))return;
  const box=document.createElement('div');box.className='sb-player'+(a.classList.contains('card-audio')?' sb-player--compact':'');
- box.innerHTML='<button class="sb-play" type="button" aria-label="Play">'+icon.play+'</button><div class="sb-player-main"><div class="sb-player-heading"><span class="sb-player-label">Ready to listen</span><span class="sb-player-title"></span></div><input class="sb-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek through song"><div class="sb-player-times"><span class="sb-elapsed">0:00</span><span class="sb-duration">–:––</span></div></div><button class="sb-mute" type="button" aria-label="Mute" aria-pressed="false">Sound on</button><p class="sb-player-status" role="status"></p>';
+ box.innerHTML='<button class="sb-play" type="button" aria-label="Play">'+icon.play+'</button><div class="sb-player-main"><div class="sb-player-heading"><span class="sb-player-label">Ready to listen</span><span class="sb-player-title"></span></div><input class="sb-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek through song"><div class="sb-player-times"><span class="sb-elapsed">0:00</span><span class="sb-duration">–:––</span></div></div><button class="sb-restart" type="button" aria-label="Restart song" title="Restart song"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.64-6.36L3 8.25"/><path d="M3 3v5.25h5.25"/></svg></button><button class="sb-mute" type="button" aria-label="Mute" aria-pressed="false">Sound on</button><p class="sb-player-status" role="status"></p>';
  a.before(box);box.append(a);
- const play=box.querySelector('.sb-play'),seek=box.querySelector('.sb-seek'),mute=box.querySelector('.sb-mute'),status=box.querySelector('.sb-player-status');
+ const play=box.querySelector('.sb-play'),seek=box.querySelector('.sb-seek'),restart=box.querySelector('.sb-restart'),mute=box.querySelector('.sb-mute'),status=box.querySelector('.sb-player-status');
  play.querySelector('svg').style.pointerEvents='none';
  let seeking=false;
  function update(){
@@ -177,6 +177,8 @@ function enhance(a){
   const path=play.querySelector('path'),shape=playing?'M6 5h4v14H6zm8 0h4v14h-4z':'M8 5v14l11-7z';
   if(path.getAttribute('d')!==shape)path.setAttribute('d',shape);
   play.setAttribute('aria-label',(playing?'Pause ':'Play ')+title);
+  restart.setAttribute('aria-label','Restart '+title);
+  restart.disabled=!Number.isFinite(a.duration)||a.duration<=0;
   box.querySelector('.sb-player-label').textContent=a.ended?'Listen again':playing?'Now playing':a.currentTime>0?'Paused':'Ready to listen';
   box.querySelector('.sb-player-title').textContent=title;
   box.querySelector('.sb-elapsed').textContent=time(a.currentTime);
@@ -192,6 +194,7 @@ function enhance(a){
  }
  play.onclick=async()=>{if(!a.paused){a.pause();update();return;}status.textContent='';try{await a.play();}catch(e){if(e.name!=='AbortError')status.textContent='Unable to play. Please try again or check the recording.';}update();};
  mute.onclick=()=>{a.muted=!a.muted;};
+ restart.onclick=()=>{try{a.currentTime=0;status.textContent='';update();}catch(_){}};
  seek.addEventListener('input',()=>{seeking=true;seek.style.setProperty('--played',(Number(seek.value)/a.duration*100)+'%');seek.setAttribute('aria-valuetext',time(Number(seek.value))+' of '+time(a.duration));box.querySelector('.sb-elapsed').textContent=time(Number(seek.value));});
  seek.addEventListener('change',()=>{if(Number.isFinite(a.duration))a.currentTime=Number(seek.value);seeking=false;update();});
  a.addEventListener('play',()=>claimAudio(a));
