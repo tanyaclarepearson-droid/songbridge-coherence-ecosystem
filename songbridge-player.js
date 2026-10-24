@@ -110,7 +110,9 @@ function compactCards(){
   if(!lyrics||!project||info.querySelector('.sb-song-actions'))return;
   const actions=document.createElement('div');actions.className='sb-song-actions';
   actions.setAttribute('role','group');actions.setAttribute('aria-label','Song resources');
-  lyrics.textContent='Lyrics & ideas ↗';project.textContent='Project lyrics ⤢';
+  const arrow='<svg class="sb-resource-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>';
+  lyrics.innerHTML='Lyrics & ideas '+arrow;
+  project.innerHTML='Project lyrics <svg class="sb-resource-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg>';
   lyrics.before(actions);actions.append(lyrics,project);
  });
 }

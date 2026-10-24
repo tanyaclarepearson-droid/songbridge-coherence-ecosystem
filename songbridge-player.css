@@ -71,3 +71,20 @@
 
 /* Installed home-screen mode has no browser toolbar to protect the home indicator. */
 @media(display-mode:standalone){.sb-mini{bottom:calc(6px + env(safe-area-inset-bottom,0px))}}
+
+/* Shared row tracks align resources without fixed text heights or truncation. */
+.sb-song-actions .sb-resource-icon{width:14px;height:14px;flex:0 0 14px;margin-left:5px;vertical-align:middle;pointer-events:none}
+.song-card{display:flex;flex-direction:column;min-width:0}
+.song-card>.cover{flex-shrink:0}
+.song-card>.song-info{display:flex;flex-direction:column;flex:1;min-width:0}
+.song-info>.sb-player{margin-top:auto}
+@supports(grid-template-rows:subgrid){
+ .song-grid>.song-card{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:0;align-content:start}
+ .song-card>.cover{grid-row:1;align-self:start}
+ .song-card>.song-info{display:grid;grid-row:2 / span 5;grid-template-rows:subgrid;row-gap:0;align-items:start}
+ .song-info>.sb-card-meta{grid-row:1}
+ .song-info>h3{grid-row:2}
+ .song-info>p{grid-row:3}
+ .song-info>.sb-player{grid-row:4;margin-top:6px;align-self:start}
+ .song-info>.sb-song-actions{grid-row:5;align-self:start}
+}
