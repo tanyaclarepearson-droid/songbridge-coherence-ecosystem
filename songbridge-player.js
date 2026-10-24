@@ -7,7 +7,7 @@ const time=n=>Number.isFinite(n)&&n>=0?Math.floor(n/60)+':'+String(Math.floor(n%
 
 // One compact remote for the current collection audio; never creates a second recording.
 let activeAudio=null,activeCardAudio=null,mini=null,framePending=false,returningToPage=false;
-let mediaKey="";
+let mediaKey="",queueActionsEnabled=null;
 function ensureMini(){
  if(mini)return;
  mini=document.createElement('section');mini.className='sb-mini';mini.hidden=true;
@@ -16,9 +16,17 @@ function ensureMini(){
  document.body.append(mini);
  mini.querySelector('.sb-mini-return').onclick=()=>{
   const a=activeCardAudio;if(!a)return;
+  if(a.id==='sb-queue-audio'){window.SongBridgeQueue?.open();return;}
   a.closest('.song-card')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
   players.get(a)?.box.querySelector('.sb-play')?.focus({preventScroll:true});
  };
+ const prev=document.createElement('button'),next=document.createElement('button');
+ prev.type=next.type='button';prev.className='sb-mini-skip sb-mini-prev';next.className='sb-mini-skip sb-mini-next';
+ prev.setAttribute('aria-label','Previous song');next.setAttribute('aria-label','Next song');prev.hidden=next.hidden=true;
+ prev.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h2v14H5zm14 0v14L8 12z"/></svg>';
+ next.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 5h2v14h-2zM5 5v14l11-7z"/></svg>';
+ mini.querySelector('.sb-mini-toggle').before(prev);mini.querySelector('.sb-mini-toggle').after(next);
+ prev.onclick=()=>window.SongBridgeQueue?.previous();next.onclick=()=>window.SongBridgeQueue?.next();
  mini.querySelector('.sb-mini-toggle').onclick=async()=>{
   const a=activeCardAudio;if(!a)return;
   mini.querySelector('.sb-mini-status').textContent='';
@@ -35,14 +43,18 @@ function updateMini(){
  const rect=box.getBoundingClientRect(),viewport=window.visualViewport;
  const top=viewport?.offsetTop||0,bottom=top+(viewport?.height||window.innerHeight);
  // Show whenever the card's actual playback control is no longer fully reachable.
- const visible=rect.top>=top+8&&rect.bottom<=bottom-8&&rect.height>0;
+ const isQueue=a.id==='sb-queue-audio';
+ const visible=!isQueue&&rect.top>=top+8&&rect.bottom<=bottom-8&&rect.height>0;
  mini.hidden=visible&&!returningToPage;
- const card=a.closest('.song-card'),title=card?.querySelector('h3')?.textContent||'SongBridge';
+ const card=a.closest('.song-card'),title=a.dataset.sbTitle||card?.querySelector('h3')?.textContent||'SongBridge';
  const playing=!a.paused;
  mini.querySelector('.sb-mini-title').textContent=title;
- mini.querySelector('.sb-mini-label').textContent=playing?'Now playing':'Paused';
- mini.querySelector('.sb-mini-return').setAttribute('aria-label','Return to '+title);
- const cover=card?.querySelector('.cover img')?.getAttribute('src'),img=mini.querySelector('img');
+ const queueState=isQueue?window.SongBridgeQueue?.state():null;
+ mini.querySelector('.sb-mini-label').textContent=(playing?'Now playing':'Paused')+(queueState?' · '+(queueState.index+1)+' of '+queueState.count:'');
+ mini.querySelector('.sb-mini-return').setAttribute('aria-label',isQueue?'Open listening queue: '+title:'Return to '+title);
+ mini.classList.toggle('sb-mini--queue',isQueue);
+ for(const [selector,enabled] of [['.sb-mini-prev',queueState?.hasPrevious],['.sb-mini-next',queueState?.hasNext]]){const button=mini.querySelector(selector);button.hidden=!isQueue;button.disabled=!enabled;}
+ const cover=a.dataset.sbCover||card?.querySelector('.cover img')?.getAttribute('src'),img=mini.querySelector('img');
  img.hidden=!cover;if(cover&&img.getAttribute('src')!==cover)img.setAttribute('src',cover);
  const toggle=mini.querySelector('.sb-mini-toggle');
  toggle.setAttribute('aria-label',(playing?'Pause ':'Resume ')+title);
@@ -58,12 +70,13 @@ window.visualViewport?.addEventListener('scroll',scheduleMini,{passive:true});
 function allAudio(){return [...new Set([...players.keys(),...document.querySelectorAll('audio')])];}
 function mediaInfo(a){
  const card=a.closest('.song-card'),projection=a.closest('#projection'),detail=a.closest('#songDialog');
- return {title:card?.querySelector('h3')?.textContent||projection?.querySelector('#projectionTitle')?.textContent||detail?.querySelector('#detailTitle')?.textContent||'SongBridge',
-  cover:card?.querySelector('.cover img')?.getAttribute('src')||projection?.querySelector('aside img')?.getAttribute('src')||detail?.querySelector('#detailCover')?.getAttribute('src')||document.querySelector('link[rel="apple-touch-icon"]')?.getAttribute('href')};
+ return {title:a.dataset.sbTitle||card?.querySelector('h3')?.textContent||projection?.querySelector('#projectionTitle')?.textContent||detail?.querySelector('#detailTitle')?.textContent||'SongBridge',
+  cover:a.dataset.sbCover||card?.querySelector('.cover img')?.getAttribute('src')||projection?.querySelector('aside img')?.getAttribute('src')||detail?.querySelector('#detailCover')?.getAttribute('src')||document.querySelector('link[rel="apple-touch-icon"]')?.getAttribute('href')};
 }
 function syncMediaSession(){
  const session=navigator.mediaSession;if(!session)return;
  const a=activeAudio;
+ syncQueueActions();
  if(!a||!a.isConnected||!a.getAttribute('src')||a.error){
   try{session.playbackState='none';session.metadata=null;session.setPositionState?.();}catch(_){}
   mediaKey='';return;
@@ -84,7 +97,7 @@ function syncMediaSession(){
 function pauseAudio(except){allAudio().forEach(a=>{if(a!==except)a.pause();});}
 function claimAudio(a){
  if(a.paused||a.ended||!a.isConnected)return;
- activeAudio=a;activeCardAudio=a.matches('.card-audio')?a:null;returningToPage=false;
+ activeAudio=a;activeCardAudio=a.matches('.card-audio,#sb-queue-audio')?a:null;returningToPage=false;
  pauseAudio(a);
  if(mini)mini.querySelector('.sb-mini-status').textContent='';
  syncMediaSession();updateMini();
@@ -94,7 +107,7 @@ function refreshPlayback(){
  // Recover from missed background events by inspecting the audio elements themselves.
  if(live.length){
   const a=live.includes(activeAudio)?activeAudio:live[0];
-  activeAudio=a;activeCardAudio=a.matches('.card-audio')?a:null;pauseAudio(a);
+  activeAudio=a;activeCardAudio=a.matches('.card-audio,#sb-queue-audio')?a:null;pauseAudio(a);
  }else if(activeAudio&&!activeAudio.isConnected){activeAudio=null;activeCardAudio=null;}
  for(const [a,p] of players){if(a.isConnected)p.update();}
  syncMediaSession();updateMini();
@@ -134,6 +147,19 @@ if(navigator.mediaSession){
  }
 }
 
+
+function syncQueueActions(){
+ const enabled=activeAudio?.id==='sb-queue-audio';
+ if(queueActionsEnabled===enabled||!navigator.mediaSession)return;
+ queueActionsEnabled=enabled;
+ for(const [name,method] of [['nexttrack','next'],['previoustrack','previous']]){
+  try{navigator.mediaSession.setActionHandler(name,enabled?()=>window.SongBridgeQueue?.[method]():null);}catch(_){}
+ }
+}
+document.addEventListener('songbridge:queuechange',()=>{
+ if(activeAudio?.id==='sb-queue-audio'){syncMediaSession();updateMini();}
+});
+
 function enhance(a){
  if(players.has(a))return;
  const box=document.createElement('div');box.className='sb-player'+(a.classList.contains('card-audio')?' sb-player--compact':'');
@@ -144,7 +170,7 @@ function enhance(a){
  let seeking=false;
  function update(){
   box.hidden=a.hidden||!a.getAttribute('src');
-  const title=a.closest('#projection')?.querySelector('#projectionTitle')?.textContent||a.closest('.song-card')?.querySelector('h3')?.textContent||a.closest('#songDialog')?.querySelector('#detailTitle')?.textContent||'SongBridge';
+  const title=a.dataset.sbTitle||a.closest('#projection')?.querySelector('#projectionTitle')?.textContent||a.closest('.song-card')?.querySelector('h3')?.textContent||a.closest('#songDialog')?.querySelector('#detailTitle')?.textContent||'SongBridge';
   const playing=!a.paused&&!a.ended;
   box.classList.toggle('is-playing',playing);
   // Keep the click target stable while playback events update the timeline.

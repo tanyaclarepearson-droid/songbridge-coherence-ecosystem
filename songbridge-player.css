@@ -88,3 +88,9 @@
  .song-info>.sb-player{grid-row:4;margin-top:6px;align-self:start}
  .song-info>.sb-song-actions{grid-row:5;align-self:start}
 }
+
+/* Queue navigation only appears during sequential listening. */
+.sb-mini-skip{display:grid;place-items:center;width:36px;min-width:36px;height:44px;padding:8px 6px;border:0;background:transparent;color:#245b4d;cursor:pointer}
+.sb-mini-skip[hidden]{display:none!important}.sb-mini-skip svg{width:20px;height:20px;fill:currentColor;pointer-events:none}.sb-mini-skip:disabled{opacity:.3;cursor:default}
+.sb-mini--queue{gap:3px}.sb-mini--queue .sb-mini-return{margin-right:3px}.sb-mini--queue .sb-mini-label{font-size:9px;letter-spacing:.035em}
+@media(max-width:380px){.sb-mini--queue{padding-left:7px;padding-right:7px}.sb-mini--queue .sb-mini-cover{width:36px;height:36px}.sb-mini--queue .sb-mini-return{gap:7px}.sb-mini--queue .sb-mini-title{font-size:13px}}
