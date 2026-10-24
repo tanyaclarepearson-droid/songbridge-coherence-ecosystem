@@ -14,7 +14,7 @@ window.SONGBRIDGE_AUDIO = {
   5: "audio/we-come-back-english.mp3", // We Come Back | English | suggested: audio/we-come-back-english.mp3
   6: "audio/breathe-me-back-to-center-english.mp3", // Breathe Me Back to Center | English | suggested: audio/breathe-me-back-to-center-english.mp3
   7: "audio/brighter-than-before-english.mp3", // Brighter Than Before | English | suggested: audio/brighter-than-before-english.mp3
-  8: "audio/pass-it-on-english=v2.mp3", // Pass It On | English | suggested: audio/pass-it-on-english.mp3
+  8: "audio/pass-it-on-english-v2.mp3", // Pass It On | English | suggested: audio/pass-it-on-english.mp3
   9: "audio/echo-of-my-name-bilingual.mp3", // Echo of My Name | English + Español | suggested: audio/echo-of-my-name-bilingual.mp3
   10: "audio/the-language-dance-english.mp3", // The Language Dance | English | suggested: audio/the-language-dance-english.mp3
   11: "audio/language-power-english.mp3", // Language Power | English | suggested: audio/language-power-english.mp3
