@@ -43,11 +43,22 @@ function enhance(a){
  if(a.preload==='none')a.preload='metadata';
  update();
 }
+function compactCards(){
+ document.querySelectorAll('.song-info').forEach(info=>{
+  const lyrics=info.querySelector('button.open[data-open]'),project=info.querySelector('button.open[data-display]');
+  if(!lyrics||!project||info.querySelector('.sb-song-actions'))return;
+  const actions=document.createElement('div');actions.className='sb-song-actions';
+  actions.setAttribute('role','group');actions.setAttribute('aria-label','Song resources');
+  lyrics.textContent='Lyrics & ideas ↗';project.textContent='Project lyrics ⤢';
+  lyrics.before(actions);actions.append(lyrics,project);
+ });
+}
 function scan(){
+ compactCards();
  for(const [a,p] of players){if(!a.isConnected){a.pause();p.watcher.disconnect();players.delete(a);}else if(!p.box.contains(a)){p.box.remove();p.watcher.disconnect();players.delete(a);}}
  document.querySelectorAll('audio').forEach(enhance);
 }
-new MutationObserver(records=>{if(records.some(r=>[...r.addedNodes,...r.removedNodes].some(n=>n.nodeType===1&&(n.matches?.('audio')||n.querySelector?.('audio')))))scan();}).observe(document.body,{childList:true,subtree:true});
+new MutationObserver(records=>{if(records.some(r=>[...r.addedNodes,...r.removedNodes].some(n=>n.nodeType===1&&(n.matches?.('audio,.song-card,.song-info')||n.querySelector?.('audio,.song-card,.song-info')))))scan();}).observe(document.body,{childList:true,subtree:true});
 document.addEventListener('play',e=>{if(e.target.tagName==='AUDIO')document.querySelectorAll('audio').forEach(a=>{if(a!==e.target)a.pause();});},true);
 scan();
 })();
