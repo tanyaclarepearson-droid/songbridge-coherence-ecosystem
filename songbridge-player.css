@@ -57,3 +57,14 @@
 @media(max-width:1000px){.song-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:25px 20px}}
 @media(max-width:700px){.song-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}.song-info h3{font-size:21px}.song-info .tag{font-size:11px}.song-info .recording-language{font-size:12px;margin-left:6px;padding-left:7px}.song-info .sb-player{gap:8px}.song-info .sb-song-actions{gap:0 10px}}
 @media(max-width:360px){.song-grid{grid-template-columns:1fr}}
+
+/* A quiet glass remote, only visible away from the active card controls. */
+.sb-mini{position:fixed;z-index:90;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);box-sizing:border-box;width:min(420px,calc(100% - 24px));display:flex;align-items:center;gap:10px;padding:9px 12px 12px 9px;border:1px solid #b7c5b4b3;border-radius:18px;background:rgba(249,247,237,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 6px 26px #183d3426,inset 0 1px 0 #fff;color:#254b40;overflow:hidden;font:14px/1.3 Arial,sans-serif}
+.sb-mini[hidden]{display:none!important}
+.sb-mini-return{min-width:0;flex:1;display:flex;align-items:center;gap:10px;text-align:left;padding:0;border:0;background:transparent;color:inherit;cursor:pointer;min-height:44px;font:inherit}
+.sb-mini-cover{width:44px;height:44px;object-fit:cover;border-radius:8px;flex-shrink:0}.sb-mini-cover[hidden]{display:none}
+.sb-mini-copy{display:block;min-width:0}.sb-mini-label{display:block;font-size:10px;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;color:#597368}.sb-mini-title{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px;font-weight:600;line-height:1.5}
+.sb-mini-toggle{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:50%;border:1px solid #98b2a2;background:#e6eee3;color:#245b4d;cursor:pointer;padding:11px}.sb-mini-toggle svg{width:22px;height:22px;fill:currentColor;pointer-events:none}
+.sb-mini button:focus-visible{outline:2px solid #8c632d;outline-offset:2px}
+.sb-mini-progress{position:absolute;bottom:0;left:0;right:0;height:3px;background:#d8dfd3}.sb-mini-progress span{display:block;height:100%;background:#36796f;width:0}
+.sb-mini-status:empty{display:none}.sb-mini-status{font-size:11px;color:#873f2a;max-width:100px}
