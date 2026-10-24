@@ -7,6 +7,32 @@
 .sb-queue-notice[hidden] { display: none; }
 #sb-queue-dialog { width: min(620px, calc(100vw - 28px)); max-width: 620px; max-height: min(820px, calc(100dvh - 32px)); padding: 26px; border: 1px solid #d9ded0; border-radius: 18px; background: #faf8f0; color: #263e3a; box-shadow: 0 24px 80px #163d2e35; overflow: auto; }
 #sb-queue-dialog::backdrop { background: #173c326b; }
+#sb-queue-dialog {
+  box-sizing: border-box;
+  max-height: min(820px, calc(100vh - 24px));
+  max-height: min(820px, calc(100dvh - 24px));
+  padding: 0;
+  overflow: hidden;
+}
+#sb-queue-dialog[open] { display: flex; flex-direction: column; }
+#sb-queue-dialog > .sb-queue-head { flex: 0 0 auto; padding: 22px 26px 14px; }
+.sb-queue-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0 26px 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #9cab99 transparent;
+}
+.sb-queue-controls { flex: 0 0 auto; padding: 12px 26px 14px; border-top: 1px solid #d9ded0; background: #faf8f0; }
+#sb-queue-dialog .sb-queue-controls .sb-queue-footer { padding-top: 0; }
+#sb-queue-dialog .sb-queue-controls .sb-queue-status { margin: 7px 0 0; min-height: 0; line-height: 1.35; }
+#sb-queue-dialog .sb-queue-controls .sb-queue-status:empty { display: none; }
+.sb-queue-content:focus-visible { outline: 2px solid #bd8b2f; outline-offset: -3px; }
 .sb-queue-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .sb-queue-head .eyebrow { margin: 0 0 7px; font-size: 9px; }
 .sb-queue-head h2 { margin: 0; font: normal 31px/1.2 Georgia, serif; letter-spacing: -.6px; }
@@ -77,7 +103,10 @@
 #sb-order-panel .sb-queue-list { max-height: min(32dvh, 280px); }
 @media (max-width: 480px) {
   .sb-queue-toolbar { margin-left: 0; }
-  #sb-queue-dialog { padding: 20px 15px 15px; }
+  #sb-queue-dialog { padding: 0; }
+  #sb-queue-dialog > .sb-queue-head { padding: 16px 15px 12px; }
+  .sb-queue-content { padding: 0 15px 12px; }
+  .sb-queue-controls { padding: 11px 15px 12px; }
   .sb-queue-head h2 { font-size: 28px; }
   .sb-queue-list { max-height: 40dvh; }
   .sb-queue-track img { width: 37px; height: 37px; flex-basis: 37px; }
@@ -89,4 +118,18 @@
   #sb-queue-dialog .sb-playlist-controls button { padding: 8px 10px; }
   .sb-queue-footer { gap: 8px; padding-top: 14px; }
   #sb-queue-dialog .sb-queue-clear { font-size: 11px; padding: 6px 0 6px 6px; }
+}
+/* A single middle scroll area avoids trapping a wheel/trackpad inside the list. */
+#sb-queue-dialog .sb-playlist-catalog,
+#sb-queue-dialog .sb-queue-list {
+  max-height: none;
+  overflow: visible;
+  overscroll-behavior: auto;
+}
+@media (max-height: 560px) {
+  #sb-queue-dialog > .sb-queue-head { padding-top: 12px; padding-bottom: 10px; }
+  .sb-queue-head h2 { font-size: 25px; }
+  .sb-queue-head .eyebrow { margin-bottom: 3px; }
+  .sb-queue-content .sb-queue-intro { margin-top: 3px; }
+  .sb-queue-controls { padding-top: 9px; padding-bottom: 10px; }
 }

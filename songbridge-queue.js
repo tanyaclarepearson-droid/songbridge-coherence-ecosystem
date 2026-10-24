@@ -67,6 +67,23 @@
     <section id="sb-choose-panel" role="tabpanel" aria-labelledby="sb-choose-tab"><div class="sb-playlist-search"><input type="search" aria-label="Find songs to add" placeholder="Find a title, language, or moment…"><button type="button" data-source="picks">Add My picks</button></div><p class="sb-playlist-selection" aria-live="polite"></p><div class="sb-playlist-catalog" aria-label="Choose songs for this playlist"></div><p class="sb-playlist-no-results" hidden>No matching songs. Try another search.</p></section>
     <section id="sb-order-panel" role="tabpanel" aria-labelledby="sb-order-tab" hidden><div class="sb-queue-list-wrap"><p class="sb-queue-empty">Your list starts empty. Choose the songs you want to hear.</p><ol class="sb-queue-list" aria-label="Songs in listening order"></ol></div></section>
     <div class="sb-queue-footer"><button type="button" class="sb-queue-play">Play playlist</button><label class="sb-queue-repeat">Repeat <select aria-label="Repeat queue"><option value="off">Off</option><option value="all">All</option><option value="one">One</option></select></label><button type="button" class="sb-queue-clear">Clear songs</button></div><p class="sb-queue-status" role="status" aria-live="polite"></p>`;
+  // One scrollable middle keeps playback controls reachable on short screens.
+  // The previous nested song scrollers trapped scroll before the footer.
+  const content = document.createElement('div');
+  content.className = 'sb-queue-content';
+  content.tabIndex = 0;
+  content.setAttribute('role', 'region');
+  content.setAttribute('aria-label', 'Playlist setup and songs');
+  const controls = document.createElement('div');
+  controls.className = 'sb-queue-controls';
+  const head = dialog.querySelector('.sb-queue-head');
+  const footer = dialog.querySelector('.sb-queue-footer');
+  const feedback = dialog.querySelector('.sb-queue-status');
+  [...dialog.children].forEach(child => {
+    if (child !== head && child !== footer && child !== feedback) content.append(child);
+  });
+  controls.append(footer, feedback);
+  dialog.replaceChildren(head, content, controls);
   document.body.append(dialog);
   const list = dialog.querySelector('.sb-queue-list');
   const status = dialog.querySelector('.sb-queue-status');
