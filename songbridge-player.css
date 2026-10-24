@@ -59,7 +59,7 @@
 @media(max-width:360px){.song-grid{grid-template-columns:1fr}}
 
 /* A quiet glass remote, only visible away from the active card controls. */
-.sb-mini{position:fixed;z-index:90;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);box-sizing:border-box;width:min(420px,calc(100% - 24px));display:flex;align-items:center;gap:10px;padding:9px 12px 12px 9px;border:1px solid #b7c5b4b3;border-radius:18px;background:rgba(249,247,237,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 6px 26px #183d3426,inset 0 1px 0 #fff;color:#254b40;overflow:hidden;font:14px/1.3 Arial,sans-serif}
+.sb-mini{position:fixed;z-index:90;left:50%;bottom:6px;transform:translateX(-50%);box-sizing:border-box;width:min(420px,calc(100% - 24px));display:flex;align-items:center;gap:10px;padding:9px 12px 12px 9px;border:1px solid #b7c5b4b3;border-radius:18px;background:rgba(249,247,237,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 6px 26px #183d3426,inset 0 1px 0 #fff;color:#254b40;overflow:hidden;font:14px/1.3 Arial,sans-serif}
 .sb-mini[hidden]{display:none!important}
 .sb-mini-return{min-width:0;flex:1;display:flex;align-items:center;gap:10px;text-align:left;padding:0;border:0;background:transparent;color:inherit;cursor:pointer;min-height:44px;font:inherit}
 .sb-mini-cover{width:44px;height:44px;object-fit:cover;border-radius:8px;flex-shrink:0}.sb-mini-cover[hidden]{display:none}
@@ -68,3 +68,6 @@
 .sb-mini button:focus-visible{outline:2px solid #8c632d;outline-offset:2px}
 .sb-mini-progress{position:absolute;bottom:0;left:0;right:0;height:3px;background:#d8dfd3}.sb-mini-progress span{display:block;height:100%;background:#36796f;width:0}
 .sb-mini-status:empty{display:none}.sb-mini-status{font-size:11px;color:#873f2a;max-width:100px}
+
+/* Installed home-screen mode has no browser toolbar to protect the home indicator. */
+@media(display-mode:standalone){.sb-mini{bottom:calc(6px + env(safe-area-inset-bottom,0px))}}
