@@ -10,13 +10,17 @@ function enhance(a){
  box.innerHTML='<button class="sb-play" type="button" aria-label="Play">'+icon.play+'</button><div class="sb-player-main"><div class="sb-player-heading"><span class="sb-player-label">Ready to listen</span><span class="sb-player-title"></span></div><input class="sb-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek through song"><div class="sb-player-times"><span class="sb-elapsed">0:00</span><span class="sb-duration">–:––</span></div></div><button class="sb-mute" type="button" aria-label="Mute" aria-pressed="false">Sound on</button><p class="sb-player-status" role="status"></p>';
  a.before(box);box.append(a);
  const play=box.querySelector('.sb-play'),seek=box.querySelector('.sb-seek'),mute=box.querySelector('.sb-mute'),status=box.querySelector('.sb-player-status');
+ play.querySelector('svg').style.pointerEvents='none';
  let seeking=false;
  function update(){
   box.hidden=a.hidden||!a.getAttribute('src');
   const title=a.closest('#projection')?.querySelector('#projectionTitle')?.textContent||a.closest('.song-card')?.querySelector('h3')?.textContent||a.closest('#songDialog')?.querySelector('#detailTitle')?.textContent||'SongBridge';
   const playing=!a.paused&&!a.ended;
   box.classList.toggle('is-playing',playing);
-  play.innerHTML=playing?icon.pause:icon.play;play.setAttribute('aria-label',(playing?'Pause ':'Play ')+title);
+  // Keep the click target stable while playback events update the timeline.
+  const path=play.querySelector('path'),shape=playing?'M6 5h4v14H6zm8 0h4v14h-4z':'M8 5v14l11-7z';
+  if(path.getAttribute('d')!==shape)path.setAttribute('d',shape);
+  play.setAttribute('aria-label',(playing?'Pause ':'Play ')+title);
   box.querySelector('.sb-player-label').textContent=a.ended?'Listen again':playing?'Now playing':a.currentTime>0?'Paused':'Ready to listen';
   box.querySelector('.sb-player-title').textContent=title;
   box.querySelector('.sb-elapsed').textContent=time(a.currentTime);
