@@ -42,6 +42,39 @@
 #sb-queue-dialog .sb-queue-clear { margin-left: auto; min-height: 42px; border: 0; background: none; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; padding: 8px; }
 .sb-queue-status { min-height: 18px; margin: 10px 0 0; font-size: 12px; color: #687967; }
 #sb-queue-dialog button:focus-visible, #sb-queue-dialog select:focus-visible { outline: 3px solid #bd8b2f; outline-offset: 2px; }
+/* Named playlists start with a quiet, unchecked song chooser. */
+#sb-queue-dialog [hidden] { display: none !important; }
+.sb-playlist-library, .sb-playlist-save { margin: 0 0 12px; }
+.sb-playlist-library > label, .sb-playlist-save > label { display: block; margin-bottom: 5px; font-size: 12px; font-weight: 600; color: #526d5c; }
+.sb-playlist-controls { display: flex; gap: 8px; }
+#sb-queue-dialog input:not([type="checkbox"]), #sb-playlist-select { width: 100%; min-width: 0; min-height: 44px; padding: 9px 10px; border: 1px solid #cbd5c6; border-radius: 7px; background: #fffdf6; color: #263e3a; font: inherit; font-size: 16px; line-height: 1.3; }
+#sb-playlist-select { flex: 1; }
+#sb-queue-dialog .sb-playlist-controls button { flex: 0 0 auto; padding: 9px 12px; min-height: 44px; background: #eef0e6; border: 1px solid #cbd5c6; border-radius: 7px; font-size: 12px; }
+.sb-playlist-meta { display: flex; align-items: center; gap: 8px; justify-content: space-between; margin: -3px 0 14px; }
+.sb-playlist-saved { margin: 0; font-size: 11px; color: #687967; line-height: 1.5; }
+#sb-queue-dialog .sb-playlist-delete { flex-shrink: 0; padding: 8px 0 8px 8px; background: none; border: 0; font-size: 11px; text-decoration: underline; color: #826556; }
+.sb-playlist-confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px; margin-bottom: 12px; background: #f2e8db; border-radius: 7px; font-size: 12px; }
+.sb-playlist-confirm span { flex: 1; }
+#sb-queue-dialog .sb-playlist-confirm button { border: 1px solid #cdbda9; border-radius: 5px; padding: 8px; background: #fff9ef; min-height: 40px; }
+.sb-playlist-tabs { display: flex; gap: 16px; border-bottom: 1px solid #d9ded0; margin-bottom: 12px; }
+#sb-queue-dialog .sb-playlist-tabs button { flex: 1; padding: 11px 0; font-size: 13px; border: 0; border-bottom: 2px solid transparent; background: none; color: #748072; }
+#sb-queue-dialog .sb-playlist-tabs button[aria-selected="true"] { color: #29584e; border-bottom-color: #2f5d50; font-weight: 600; }
+.sb-playlist-search { display: flex; align-items: center; gap: 8px; }
+#sb-queue-dialog .sb-playlist-search input { font-size: 16px; }
+#sb-queue-dialog .sb-playlist-search button { background: none; border: 0; padding: 6px 0 6px 6px; min-height: 44px; flex: 0 0 87px; font-size: 11px; line-height: 1.4; text-decoration: underline; text-underline-offset: 3px; }
+.sb-playlist-selection { margin: 9px 0 5px; color: #687967; font-size: 11px; }
+.sb-playlist-catalog { max-height: min(32dvh, 280px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #c4cebd transparent; }
+.sb-playlist-choice { display: flex; align-items: center; gap: 10px; min-height: 64px; padding: 8px 5px; border-radius: 7px; cursor: pointer; }
+.sb-playlist-choice + .sb-playlist-choice { border-top: 1px solid #e9e9df; }
+.sb-playlist-choice.is-selected { background: #ebf0e5; }
+#sb-queue-dialog .sb-playlist-choice input { appearance: auto; flex: 0 0 20px; width: 20px; height: 20px; margin: 0 2px; accent-color: #2f5d50; cursor: pointer; }
+.sb-playlist-choice img { width: 42px; height: 42px; flex: 0 0 42px; border-radius: 5px; object-fit: cover; }
+.sb-playlist-choice > span { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.sb-playlist-choice strong { font-size: 13px; line-height: 1.35; font-weight: 600; overflow-wrap: anywhere; }
+.sb-playlist-choice span span { font-size: 10px; color: #6d7c6d; line-height: 1.4; }
+.sb-playlist-no-results { text-align: center; padding: 24px 12px; color: #687967; font-size: 13px; }
+#sb-queue-dialog input:focus-visible { outline: 3px solid #bd8b2f; outline-offset: 2px; }
+#sb-order-panel .sb-queue-list { max-height: min(32dvh, 280px); }
 @media (max-width: 480px) {
   .sb-queue-toolbar { margin-left: 0; }
   #sb-queue-dialog { padding: 20px 15px 15px; }
@@ -51,4 +84,9 @@
   #sb-queue-dialog .sb-queue-track { gap: 8px; }
   #sb-queue-dialog .sb-queue-row-actions button { width: 30px; min-height: 42px; }
   .sb-queue-repeat { gap: 5px; }
+  .sb-queue-intro { margin: 10px 0 14px; }
+  .sb-playlist-catalog, #sb-order-panel .sb-queue-list { max-height: 27dvh; }
+  #sb-queue-dialog .sb-playlist-controls button { padding: 8px 10px; }
+  .sb-queue-footer { gap: 8px; padding-top: 14px; }
+  #sb-queue-dialog .sb-queue-clear { font-size: 11px; padding: 6px 0 6px 6px; }
 }
