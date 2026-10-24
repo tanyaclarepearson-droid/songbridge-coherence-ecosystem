@@ -27,4 +27,6 @@ window.SONGBRIDGE_AUDIO = {
   18: "audio/belonging-is-the-compass-english.mp3", // Belonging Is the Compass | English | suggested: audio/belonging-is-the-compass-english.mp3
   19: "audio/finding-our-way-english.mp3", // Finding Our Way | English | suggested: audio/finding-our-way-english.mp3
   24: "audio/aqui-aqui-right-here.mp3", // Aquí, aquí · Right Here, Right Here
+  25: "audio/volvemos.mp3", // Volvemos | Español
+  26: "audio/we-begin-here.mp3", // We Begin Here | English
 };
