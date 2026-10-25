@@ -1,0 +1,46 @@
+SONGBRIDGE LEARNING - UNIFIED FIELD UPDATE
+For songbridgelearning.com only
+Prepared from the live main collection on October 25, 2026.
+
+INSTALL
+1. Unzip this download on your computer.
+2. In the GitHub repository connected to songbridgelearning.com, upload the
+   CONTENTS of this folder into the same root folder as your current index.html.
+   Keep the audio, covers, and timings folder structure shown here.
+3. Replace the same-named files. Keep all other existing files and recordings.
+   This is an update package, not a complete standalone website.
+4. Commit the upload and let your existing Netlify deployment finish.
+
+WHAT YOU WILL SEE
+- 29 songs, including Unified Field in the Deeper inquiry category.
+- Its tree cover, recording, favorite heart, and playlist availability.
+- The same song detail, lyric PDF download, and Display lyrics experience
+  used by the rest of the main collection.
+- Existing song IDs, recordings, covers, favorites, and playlist data preserved.
+
+PROJECTED LYRICS
+Open Unified Field, then Display lyrics. The existing display includes the
+cover, large scrollable text, playback, Previous/Next, and text size controls.
+The timing file contains complete lyrics with time: null for every phrase.
+Use manual advancement until the actual recording has been synchronized.
+
+TO ADD TIMING LATER
+1. Use Recording & timing > Download timing template in the lyric display,
+   or use timings/unified-field-english.json included here.
+2. Set each cue's time to the phrase's start in seconds, in song order.
+   Keep format: songbridge-lyric-cues-v1. Do not estimate evenly spaced times.
+3. Import the finished cue map in the display to test it for that visit.
+4. For everyone to use it, replace timings/unified-field-english.json in
+   GitHub. Entry 28 in timings.js is already connected to that file.
+5. Keep Follow audio checked in the display to advance with the recording.
+
+FILES REPLACED
+index.html, songs.js, app.js, recordings.js, timings.js, lyrics-pdfs.js
+
+FILES ADDED
+covers/unified-field.jpeg
+audio/unified-field-english.mp3
+timings/unified-field-english.json
+
+Use this package for the main SongBridge Learning repository.
+The separate SongBridge In the World package belongs to its own repository.

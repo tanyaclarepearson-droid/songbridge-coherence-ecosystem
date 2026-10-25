@@ -474,5 +474,22 @@ const SONGS = [
     "cover": "covers/slow-and-fast-earth-in-motion.png",
     "language": "English + Español",
     "family": "27"
+  },
+  {
+    "id": 28,
+    "title": "Unified Field",
+    "moment": "Deeper inquiry",
+    "audience": "Teens & adults",
+    "language": "English",
+    "blurb": "A song about relationship, becoming, and the worlds that shape us.",
+    "quote": "Everything changes together.",
+    "use": "Listen with one familiar learning moment in mind. What relationships, histories, and surroundings helped shape it? Let “We grow where we are held” open a conversation about the conditions that help people grow.",
+    "variants": {
+      "English": "[Verse 1]\nIn the widening arc of a moment,\nWhere the past and the future meet,\nThere’s a place where the edges soften,\nAnd the ground hums under our feet.\nEvery choice is a line in the lattice,\nEvery step is a shimmer revealed—\nWe are walking a path between worlds,\nIn the unified field.\n\n[Chorus]\nOh, dance with the light of a thousand suns,\nIn this tapestry where the journey runs,\nTogether we rise, together we feel,\nEvery heartbeat echoes in the unified field.\n\n[Verse 2]\nThere are blooms in the heart of becoming,\nPetals opening one by one,\nAll the stories we carry inside us,\nAll the light we’ve borrowed from the sun.\nWe are layered with quiet awakenings,\nEvery wound that has slowly healed—\nThere’s a tenderness shaping our growing,\nIn the unified field.\n\n[Chorus]\nOh, dance with the light of a thousand suns,\nIn this tapestry where the journey runs,\nTogether we rise, together we feel,\nEvery heartbeat echoes in the unified field.\n\n[Bridge]\nOh, we rise in relation,\nWe grow where we are held—\nEvery voice, every breath,\nIs a part of what compels.\nWe are shaped by the circle around us,\nAnd the worlds we gently yield—\nEverything changes together,\nIn the unified field.\n\n[Verse 3]\nThere are rings at the core of our stories,\nEchoes older than we know,\nSpirals tracing our truth in motion,\nMoving inward as we grow.\nIn the mirror of each connection,\nWe remember what’s concealed—\nWho we are is a dance with the cosmos,\nIn the unified field.\n\n[Chorus]\nOh, dance with the light of a thousand suns,\nIn this tapestry where the journey runs,\nTogether we rise, together we feel,\nEvery heartbeat echoes in the unified field.\n\n[Outro]\nSo take my hand on this path we tread,\nNature whispers softly where the past has bled,\nIn the harmony of life's grand reveal,\nWe find our strength in the unified field."
+    },
+    "bilingual": false,
+    "cover": "covers/unified-field.jpeg",
+    "family": "28",
+    "color": "teal"
   }
 ];
