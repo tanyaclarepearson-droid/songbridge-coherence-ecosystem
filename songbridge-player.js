@@ -8,6 +8,60 @@ const time=n=>Number.isFinite(n)&&n>=0?Math.floor(n/60)+':'+String(Math.floor(n%
 // One compact remote for the current collection audio; never creates a second recording.
 let activeAudio=null,activeCardAudio=null,mini=null,framePending=false,returningToPage=false;
 let mediaKey="",queueActionsEnabled=null;
+let dock=null;
+function rememberCard(a){
+ if(!a?.matches('.card-audio'))return;
+ const card=a.closest('.song-card'),info=mediaInfo(a);
+ if(info.title)a.dataset.sbTitle=info.title;
+ if(info.cover)a.dataset.sbCover=info.cover;
+ const id=a.dataset.sbSongId||card?.dataset.songId||card?.querySelector('[data-open]')?.dataset.open;
+ if(id!==undefined&&id!==null)a.dataset.sbSongId=String(id);
+}
+function ensureDock(){
+ if(dock)return dock;
+ dock=document.createElement('div');dock.id='sb-audio-dock';dock.hidden=true;
+ dock.setAttribute('aria-hidden','true');document.body.append(dock);return dock;
+}
+function clearDock(except){
+ if(!dock)return;
+ for(const a of dock.querySelectorAll('audio')){
+  if(a===except)continue;
+  a.pause();const p=players.get(a);p?.watcher.disconnect();
+  (p?.box||a).remove();players.delete(a);
+  a.removeAttribute('src');try{a.load();}catch(_){}
+ }
+}
+function preserve(scope){
+ const a=activeCardAudio||(activeAudio?.dataset.sbPersist==='true'?activeAudio:null);
+ if(!a||!a.isConnected||a.id==='sb-queue-audio'||a.ended)return;
+ const p=players.get(a);if(!p)return;
+ if(scope&&!scope.contains(p.box))return;
+ // A deliberate section change can carry detail playback into the shared player.
+ // Ordinary dialog closing still follows the dialog's existing pause behavior.
+ if(a!==activeCardAudio){
+  a.classList.add('card-audio');p.box.classList.add('sb-player--compact');
+  activeCardAudio=a;
+ }
+ rememberCard(a);clearDock(a);ensureDock().append(p.box);
+ // Keep the same audio element, event handlers, current time, and paused state.
+ updateMini();
+}
+function visibleCard(a){
+ const card=a.closest('.song-card');
+ return !!card&&!card.closest('[hidden]')&&card.getClientRects().length>0;
+}
+function restoreParkedCard(){
+ const a=activeCardAudio,p=players.get(a);
+ if(!a||!p||!dock?.contains(a)||!a.dataset.sbSongId)return;
+ const candidate=[...document.querySelectorAll('.card-audio')].find(other=>
+  other!==a&&other.dataset.sbSongId===a.dataset.sbSongId&&other.src===a.src&&visibleCard(other));
+ if(!candidate)return;
+ const old=players.get(candidate),target=old?.box||candidate;
+ old?.watcher.disconnect();players.delete(candidate);candidate.pause();
+ target.replaceWith(p.box);
+ candidate.removeAttribute('src');try{candidate.load();}catch(_){}
+ rememberCard(a);p.update();
+}
 function ensureMini(){
  if(mini)return;
  mini=document.createElement('section');mini.className='sb-mini';mini.hidden=true;
@@ -17,6 +71,11 @@ function ensureMini(){
  mini.querySelector('.sb-mini-return').onclick=()=>{
   const a=activeCardAudio;if(!a)return;
   if(a.id==='sb-queue-audio'){window.SongBridgeQueue?.open();return;}
+  if(!visibleCard(a)&&a.dataset.sbSongId&&window.SongBridgeNavigateToSong){
+   window.SongBridgeNavigateToSong(Number(a.dataset.sbSongId));
+   requestAnimationFrame(()=>{scan();players.get(a)?.box.querySelector('.sb-play')?.focus({preventScroll:true});});
+   return;
+  }
   a.closest('.song-card')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
   players.get(a)?.box.querySelector('.sb-play')?.focus({preventScroll:true});
  };
@@ -97,6 +156,7 @@ function syncMediaSession(){
 function pauseAudio(except){allAudio().forEach(a=>{if(a!==except)a.pause();});}
 function claimAudio(a){
  if(a.paused||a.ended||!a.isConnected)return;
+ rememberCard(a);clearDock(a);
  activeAudio=a;activeCardAudio=a.matches('.card-audio,#sb-queue-audio')?a:null;returningToPage=false;
  pauseAudio(a);
  if(mini)mini.querySelector('.sb-mini-status').textContent='';
@@ -224,6 +284,7 @@ function compactCards(){
 }
 function scan(){
  compactCards();
+ restoreParkedCard();
  for(const [a,p] of players){
   if(!a.isConnected){
    // A removed card must not leave an invisible recording running in Safari.
@@ -237,6 +298,11 @@ function scan(){
 }
 new MutationObserver(records=>{if(records.some(r=>[...r.addedNodes,...r.removedNodes].some(n=>n.nodeType===1&&(n.matches?.('audio,.song-card,.song-info')||n.querySelector?.('audio,.song-card,.song-info')))))scan();}).observe(document.body,{childList:true,subtree:true});
 
+window.SongBridgePlayer={
+ preserve,
+ refresh:()=>{scan();refreshPlayback();},
+ currentSongId:()=>activeCardAudio?.dataset.sbSongId===undefined?null:Number(activeCardAudio.dataset.sbSongId)
+};
 scan();
 refreshPlayback();
 })();

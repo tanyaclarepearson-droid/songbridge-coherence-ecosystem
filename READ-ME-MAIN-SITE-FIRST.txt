@@ -1,0 +1,43 @@
+SONGBRIDGE — ONE HOME FOR SONGS AND WAYS TO USE THEM
+Main-site update · October 25, 2026
+
+INSTALL THIS ZIP IN THE SONGBRIDGELEARNING.COM REPOSITORY ONLY.
+
+1. Unzip this download.
+2. Upload the seven website files to the repository's root, where index.html already lives. Replace index.html, app.js, and songbridge-player.js; add the four new ways files. Upload the files themselves, not the enclosing folder or ZIP.
+3. Keep all other existing files and folders. In particular, keep audio/, covers/, songs.js, recordings.js, timings.js, projector.js, lyrics-pdfs.js, and your existing player, favorites, playlist, and site styles.
+4. Commit the changes and let the existing Netlify deployment finish. No new build command or routing configuration is needed.
+5. Refresh SongBridge Learning. The new navigation item is “Ways to use them.”
+
+WHAT THIS ADDS
+The collection remains the homepage. Ways to use them includes On the way, With students, With your team, In community, and Deeper inquiry. These pages use the same catalog, recordings, cover art, lyric details, projection view, favorites, playlists, and playback controls as the collection.
+
+Music continues when following the site's navigation between the collection and these use pages. Full browser reloads and opening a new tab still begin a new page session.
+
+The use pages retain their scenarios, reflection prompts, printable blank cards, and downloaded reflections. Typed reflections remain while browsing in the same tab; download a copy before closing or reloading.
+
+Your current song data, audio, timing work, cover images, and newly designed lyric PDFs are not replaced by this update. Future catalog corrections continue through the shared songs.js, recordings.js, and other existing files.
+
+CHECK AFTER DEPLOYMENT
+- Play a song, open Ways to use them, and pause/resume it from the small player.
+- Visit a use page; open Lyrics & ideas and Project lyrics.
+- Heart a song and check My picks from the collection.
+- Open a saved playlist.
+- Check the phone layout and download one lyric PDF.
+
+SAVED PICKS AND LISTS
+The main site's existing storage keys stay the same. Main-site picks and playlists remain in the browser/device where you saved them. They are not account-synced. Selections saved only on the separate old In the World domain cannot automatically move across domains; download or note those picks there before redirecting that site.
+
+OLD COMPANION SITE
+The separate SongBridge-In-The-World-Redirects.zip is for the OLD companion repository only. Use it AFTER this main-site update has deployed and passed the checks above. It forwards old page links to their new places in SongBridge Learning. Never upload that redirect configuration to the main site.
+
+FILES IN THIS UPDATE
+index.html
+app.js
+songbridge-player.js
+ways-content.js
+ways-content.css
+songbridge-ways.js
+songbridge-ways.css
+
+This ZIP is an update to the existing website, not a standalone offline copy. It intentionally does not include the existing song audio and cover files.
