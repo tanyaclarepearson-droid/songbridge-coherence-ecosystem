@@ -4,7 +4,7 @@ function loadLyricPDFs(){
   if(lyricPDFPromise) return lyricPDFPromise;
   lyricPDFPromise=new Promise((resolve,reject)=>{
     const script=document.createElement('script');
-    script.src='lyrics-pdfs.js?v=20261025-unified1';
+    script.src='lyrics-pdfs.js?v=20261025-lyric-layouts1';
     script.async=true;
     const fail=()=>{script.remove();lyricPDFPromise=null;reject(new Error('Lyric sheets could not load.'));};
     script.onload=()=>{if(typeof LYRIC_PDFS !== 'undefined')resolve(LYRIC_PDFS);else fail();};
