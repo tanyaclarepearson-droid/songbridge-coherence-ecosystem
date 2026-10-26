@@ -1,0 +1,9 @@
+/* A quiet explanation of the collection's audience suggestions. */
+.curation-note{font-size:13px;line-height:1.5;color:#52675d;max-width:670px;margin:14px 0 0}
+.toolbar>label{min-width:0}
+.toolbar select{max-width:100%}
+@media(max-width:700px){
+ .toolbar>label:has(#audience),.toolbar>label:has(#language){flex:1 1 145px}
+ .toolbar #audience,.toolbar #language{width:100%}
+ .curation-note{margin-top:12px}
+}

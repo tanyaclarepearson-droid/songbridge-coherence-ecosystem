@@ -1,0 +1,51 @@
+SONGBRIDGE — AUDIENCE & OPENING ORDER UPDATE
+October 25, 2026
+
+FOR YOUR EXISTING SONGBRIDGELEARNING.COM REPOSITORY
+
+1. Unzip this download.
+2. Upload the FOUR website files into the repository root, where index.html lives.
+   Replace: index.html and app.js.
+   Add: songbridge-curation.js and songbridge-curation.css.
+3. Keep all other files and folders. Do not remove or replace your audio, covers, song data, lyrics, PDFs, timing files, playlists, or Ways to use them files.
+4. Commit and let the existing Netlify deployment finish. No build settings need changing.
+5. Refresh the website. The three featured invitations should now be I Am Me, Learning’s Journey, and Brighter Than Before.
+
+WHAT CHANGES
+The default collection begins:
+1. I Am Me
+2. Learning’s Journey
+3. Brighter Than Before
+4. Not Yet, Still Here
+5. Mariposa — Español
+6. Before You Ask Them to Learn
+7. The Space to Learn
+8. Many Ways Forward
+9. Aún No, Sigo Aquí
+10. Finding Our Way
+11. Every Voice Belongs
+12. Joy Stays
+All 29 recordings remain in the complete collection.
+
+AUDIENCE CHOICES
+All audiences: the broad opening mix, then the complete collection.
+Young learners: starts with I Am Me, Not Yet Still Here, Many Ways Forward, and We Begin Here.
+Older learners: starts with Learning’s Journey, Finding Our Way, Learning What Holds, and Every Voice Belongs.
+Adults & educators: starts with Learning’s Journey, The Space to Learn, Before You Ask Them to Learn, and Brighter Than Before.
+Families & community: starts with Brighter Than Before, Mariposa Español, Every Voice Belongs, and Pass It On.
+
+These are overlapping editorial suggestions, not age restrictions. The audience describes the intended listeners; an educator choosing for their own listening can select Adults & educators, while choosing for children can select Young learners. Language, moment, search, and My picks still combine with the audience choice. Reset filters restores the full collection in its new order.
+
+PRESERVED
+Song IDs, covers, recordings, lyrics, PDF sheets, projection/timing, existing saved favorites, saved playlist playing order, and use-page song selections are preserved. This changes browsing recommendations, not the order of a saved playlist.
+
+ADJUSTING LATER
+The editable default and audience orders live in songbridge-curation.js. The default list has comments with each song title. Keep each song’s ID unchanged; move IDs within a list to change recommendations. Newly added songs still appear in All audiences and have a fallback into audience groups using their song-data audience label. The three featured invitation cards are in app.js.
+
+QUICK CHECK
+- Confirm the first three collection cards and featured invitations.
+- Try all four audience choices and an audience + Spanish combination.
+- Reset filters to see all 29 songs again.
+- Play a song, change the audience, and use the mini player if the active song is filtered out.
+
+This is an update package for the existing website. It is not a standalone offline copy. Upload it only to the main SongBridge Learning repository; the old companion redirect site needs no changes.
