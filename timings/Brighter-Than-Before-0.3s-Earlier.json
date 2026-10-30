@@ -1,0 +1,428 @@
+{
+  "format": "songbridge-lyric-cues-v1",
+  "title": "Brighter Than Before",
+  "subtitle": "Hope carried together and shared possibility",
+  "audioFileName": "brighter-than-before.mp3",
+  "cues": [
+    {
+      "section": "Verse 1",
+      "text": "Chalk-dusted fingertips",
+      "time": 13.456
+    },
+    {
+      "section": "Verse 1",
+      "text": "Sunlight bouncing off the spokes",
+      "time": 16.535
+    },
+    {
+      "section": "Verse 1",
+      "text": "Tomatoes climbing chain-link fences",
+      "time": 20.244
+    },
+    {
+      "section": "Verse 1",
+      "text": "Murals peppering the roads",
+      "time": 23.245
+    },
+    {
+      "section": "Verse 1",
+      "text": "Someone tuning up a guitar",
+      "time": 27.252
+    },
+    {
+      "section": "Verse 1",
+      "text": "At the table by the trees",
+      "time": 30.77
+    },
+    {
+      "section": "Verse 1",
+      "text": "Another sketching bigger futures",
+      "time": 34.214
+    },
+    {
+      "section": "Verse 1",
+      "text": "On the back of grocery receipts",
+      "time": 37.27
+    },
+    {
+      "section": "Verse 1",
+      "text": "And the old men by the garden",
+      "time": 41.108
+    },
+    {
+      "section": "Verse 1",
+      "text": "Laugh like they have seen this bloom",
+      "time": 44.209
+    },
+    {
+      "section": "Verse 1",
+      "text": "Every small thing leaning upward",
+      "time": 47.796
+    },
+    {
+      "section": "Verse 1",
+      "text": "Like the whole street found more room",
+      "time": 51.117
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "What if",
+      "time": 57.049
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "The places that we share",
+      "time": 58.931
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "Could grow more alive than ever?",
+      "time": 60.41
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "What if",
+      "time": 63.842
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "Ordinary days held",
+      "time": 65.311
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "More color than survival?",
+      "time": 67.631
+    },
+    {
+      "section": "Chorus",
+      "text": "Because",
+      "time": 72.369
+    },
+    {
+      "section": "Chorus",
+      "text": "Hope grows brighter when it’s carried",
+      "time": 72.931
+    },
+    {
+      "section": "Chorus",
+      "text": "And joy moves farther hand to hand",
+      "time": 76.011
+    },
+    {
+      "section": "Chorus",
+      "text": "Then",
+      "time": 79.333
+    },
+    {
+      "section": "Chorus",
+      "text": "Empty corners turn to gathering places",
+      "time": 80.117
+    },
+    {
+      "section": "Chorus",
+      "text": "Built up by greeting and delight",
+      "time": 83.044
+    },
+    {
+      "section": "Chorus",
+      "text": "Because",
+      "time": 86.1
+    },
+    {
+      "section": "Chorus",
+      "text": "People shine in different weather",
+      "time": 87.077
+    },
+    {
+      "section": "Chorus",
+      "text": "When every voice has room to ring",
+      "time": 89.89
+    },
+    {
+      "section": "Chorus",
+      "text": "Now",
+      "time": 93.112
+    },
+    {
+      "section": "Chorus",
+      "text": "Look what becomes possible",
+      "time": 93.822
+    },
+    {
+      "section": "Chorus",
+      "text": "When a whole town learns to wake big dreams",
+      "time": 96.535
+    },
+    {
+      "section": "Verse 2",
+      "text": "Lanterns swinging from the market",
+      "time": 107.771
+    },
+    {
+      "section": "Verse 2",
+      "text": "Paint beneath the fingernails",
+      "time": 110.383
+    },
+    {
+      "section": "Verse 2",
+      "text": "Teenagers leading younger children",
+      "time": 113.844
+    },
+    {
+      "section": "Verse 2",
+      "text": "Through the stories on the rails",
+      "time": 117.018
+    },
+    {
+      "section": "Verse 2",
+      "text": "Someone teaching bread and language",
+      "time": 120.862
+    },
+    {
+      "section": "Verse 2",
+      "text": "Someone teaching how to weld",
+      "time": 124.299
+    },
+    {
+      "section": "Verse 2",
+      "text": "Someone planting little orchards",
+      "time": 128.115
+    },
+    {
+      "section": "Verse 2",
+      "text": "Where abandoned concrete held",
+      "time": 131.183
+    },
+    {
+      "section": "Verse 2",
+      "text": "And the woman at the corner",
+      "time": 135.131
+    },
+    {
+      "section": "Verse 2",
+      "text": "Hands out seedlings wrapped in news",
+      "time": 138.112
+    },
+    {
+      "section": "Verse 2",
+      "text": "Says, “Nothing living stays small forever",
+      "time": 141.425
+    },
+    {
+      "section": "Verse 2",
+      "text": "Once enough hands help it through”",
+      "time": 145.112
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "What if",
+      "time": 149.237
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "Belonging felt as natural",
+      "time": 150.382
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "As sitting in the evening light?",
+      "time": 152.459
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "What if",
+      "time": 156.092
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "People lingered long enough",
+      "time": 156.9
+    },
+    {
+      "section": "Pre-Chorus",
+      "text": "To help a whole place come alive?",
+      "time": 159.204
+    },
+    {
+      "section": "Chorus",
+      "text": "Because",
+      "time": 162.888
+    },
+    {
+      "section": "Chorus",
+      "text": "Beauty grows where it is practiced",
+      "time": 163.662
+    },
+    {
+      "section": "Chorus",
+      "text": "And streets remember how to sing",
+      "time": 166.434
+    },
+    {
+      "section": "Chorus",
+      "text": "Then",
+      "time": 169.665
+    },
+    {
+      "section": "Chorus",
+      "text": "Sidewalks bloom with invitation",
+      "time": 170.507
+    },
+    {
+      "section": "Chorus",
+      "text": "Windows open into spring",
+      "time": 173.766
+    },
+    {
+      "section": "Chorus",
+      "text": "Because",
+      "time": 176.8
+    },
+    {
+      "section": "Chorus",
+      "text": "Young hearts carry wild imagination",
+      "time": 177.414
+    },
+    {
+      "section": "Chorus",
+      "text": "And older hands remember how",
+      "time": 180.437
+    },
+    {
+      "section": "Chorus",
+      "text": "Then",
+      "time": 183.758
+    },
+    {
+      "section": "Chorus",
+      "text": "Little by little",
+      "time": 184.311
+    },
+    {
+      "section": "Chorus",
+      "text": "Block by block",
+      "time": 185.806
+    },
+    {
+      "section": "Chorus",
+      "text": "Something brighter starts becoming now",
+      "time": 187.177
+    },
+    {
+      "section": "Bridge",
+      "text": "Not someday",
+      "time": 192.495
+    },
+    {
+      "section": "Bridge",
+      "text": "Not perfect",
+      "time": 195.932
+    },
+    {
+      "section": "Bridge",
+      "text": "Not after everything is fixed",
+      "time": 197.703
+    },
+    {
+      "section": "Bridge",
+      "text": "Just one mural",
+      "time": 200.377
+    },
+    {
+      "section": "Bridge",
+      "text": "One garden",
+      "time": 202.883
+    },
+    {
+      "section": "Bridge",
+      "text": "One long table in the sun",
+      "time": 204.594
+    },
+    {
+      "section": "Bridge",
+      "text": "And another",
+      "time": 207.787
+    },
+    {
+      "section": "Bridge",
+      "text": "And another",
+      "time": 209.834
+    },
+    {
+      "section": "Bridge",
+      "text": "Until the air itself feels different",
+      "time": 211.565
+    },
+    {
+      "section": "Bridge",
+      "text": "Like a tide turning quietly",
+      "time": 214.748
+    },
+    {
+      "section": "Bridge",
+      "text": "Like a wave no one can stop",
+      "time": 218.792
+    },
+    {
+      "section": "Bridge",
+      "text": "Rolling farther than expected",
+      "time": 222.004
+    },
+    {
+      "section": "Bridge",
+      "text": "’Til the dreams begin to wake",
+      "time": 225.725
+    },
+    {
+      "section": "Final Chorus",
+      "text": "Because",
+      "time": 229.554
+    },
+    {
+      "section": "Final Chorus",
+      "text": "Hope grows stronger when it’s shared",
+      "time": 230.049
+    },
+    {
+      "section": "Final Chorus",
+      "text": "And stories travel farther than fear",
+      "time": 232.435
+    },
+    {
+      "section": "Final Chorus",
+      "text": "Then",
+      "time": 236.056
+    },
+    {
+      "section": "Final Chorus",
+      "text": "Neighborhoods become living canvases",
+      "time": 236.631
+    },
+    {
+      "section": "Final Chorus",
+      "text": "And strangers turn familiar here",
+      "time": 239.644
+    },
+    {
+      "section": "Outro",
+      "text": "Morning light on open doorways",
+      "time": 243.451
+    },
+    {
+      "section": "Outro",
+      "text": "Paint and jasmine in the breeze",
+      "time": 246.964
+    },
+    {
+      "section": "Outro",
+      "text": "Every small thing leaning upward",
+      "time": 249.513
+    },
+    {
+      "section": "Outro",
+      "text": "Like the whole street learned to breathe",
+      "time": 253.37
+    }
+  ]
+}
