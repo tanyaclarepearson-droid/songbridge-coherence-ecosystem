@@ -1,0 +1,20 @@
+/* One opening layout for Songs, Stories, and Ways. */
+html{scrollbar-gutter:stable}body{background:#f7f3e9}
+#collectionView,#worldView,body>main#main{width:100%;max-width:1320px;margin:0 auto;padding:0}
+#collectionView .sb-landing,#worldView .sb-landing,#main .sb-landing{box-sizing:border-box;position:relative;isolation:isolate;display:flex;align-items:center;width:100%;min-height:530px;margin:0;padding:44px 54px 48px;overflow:hidden;background:#f7f3e9;color:#263e3a}
+.sb-landing .sb-landing-copy{position:relative;z-index:2;width:48%;max-width:570px}
+.sb-landing .eyebrow{font:700 11px/1.5 Arial,Helvetica,sans-serif;letter-spacing:2px;color:#36796f;margin:0 0 20px;text-transform:uppercase}
+#collectionView .sb-landing h1,#worldView .sb-landing h1,#main .sb-landing h1{font:normal clamp(44px,5.5vw,73px)/1.08 Georgia,serif;letter-spacing:-2.6px;margin:0 0 24px;color:#263e3a;max-width:none}
+.sb-landing h1 em{font-weight:normal;color:#c9654b}
+#collectionView .sb-landing-intro,#worldView .sb-landing-intro,#main .sb-landing-intro{font:16px/1.7 Arial,Helvetica,sans-serif;color:#5b6b61;max-width:470px;margin:0 0 29px}
+.sb-landing .sb-landing-button{display:inline-flex;align-items:center;gap:28px;padding:14px 21px;border-radius:5px;background:#263e3a;color:white;font:14px/1.5 Arial,Helvetica,sans-serif;text-decoration:none;border:0}
+.sb-landing-button span{font-size:23px}
+#collectionView .sb-landing-note,#worldView .sb-landing-note,#main .sb-landing-note{font:12px/1.6 Arial,Helvetica,sans-serif;color:#67736c;margin:20px 0 0}
+.sb-landing .sb-landing-art{position:absolute;z-index:0;right:36px;top:0;bottom:0;width:80%;height:auto;margin:0;padding:0;pointer-events:none;border:0;border-radius:0;overflow:visible;mask-image:linear-gradient(to right,transparent 0%,#000 12%,#000 98.5%,transparent 100%)}
+.sb-landing .sb-landing-art img{display:block;width:100%;height:100%;max-height:none;border-radius:0;object-fit:contain;object-position:right center;mix-blend-mode:multiply}
+.sb-stories-introduction{padding:30px 0 0;color:#5b6b61;font-size:16px;line-height:1.7}.sb-stories-introduction p{max-width:850px}
+.sb-global-header{min-height:100px}.sb-global-header nav a[aria-current=page]{color:#36796f}
+@media(min-width:701px) and (max-width:1000px){#collectionView .sb-landing,#worldView .sb-landing,#main .sb-landing{padding:40px 30px;min-height:490px}.sb-landing .sb-landing-copy{width:53%}#collectionView .sb-landing h1,#worldView .sb-landing h1,#main .sb-landing h1{font-size:52px}.sb-landing .sb-landing-art{right:20px}}
+@media(max-width:700px){#collectionView .sb-landing,#worldView .sb-landing,#main .sb-landing{display:flex;flex-direction:column;align-items:stretch;padding:38px 22px 16px;min-height:0}.sb-landing .sb-landing-copy{width:100%;max-width:none}#collectionView .sb-landing h1,#worldView .sb-landing h1,#main .sb-landing h1{font-size:clamp(40px,10vw,62px);letter-spacing:-1.8px}.sb-landing .sb-landing-art{position:relative;inset:auto;width:calc(100% + 44px);height:auto;aspect-ratio:3/2;margin:8px -22px 0;mask-image:linear-gradient(to bottom,transparent,#000 10%,#000 92%,transparent)}.sb-landing .sb-landing-art img{position:absolute;inset:0}.sb-global-header{min-height:0}}
+@media print{.sb-landing-art{display:none!important}}
+#worldView .sb-landing .sb-landing-button,#main .sb-landing .sb-landing-button,#collectionView .sb-landing .sb-landing-button{color:#fff;font:14px/1.5 Arial,Helvetica,sans-serif;text-decoration:none}#worldView .sb-landing .sb-landing-button span{color:#fff;font-size:23px}

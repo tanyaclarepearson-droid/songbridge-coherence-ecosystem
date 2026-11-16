@@ -1,7 +1,9 @@
-SongBridge Stories integration v3 — consistent navigation
+SongBridge integration v5 — consistent landing pages
 
-Upload the five top-level website files and the entire stories folder into the existing GitHub repository connected to songbridgelearning.com. Merge with existing files; keep all other files, media and folders. Commit and allow Netlify to redeploy. This is an update package, not a standalone Netlify drop.
+Unzip and upload all ten top-level website files plus the art and stories folders into your EXISTING songbridgelearning.com GitHub repository. Merge the folders; keep all existing files and media not included here. Commit and let Netlify redeploy. Do not replace your whole repository or use this as a standalone Netlify drop.
 
-Both pages now share the same brand/home link and primary navigation: The songs, Song stories, Ways to use them, My picks. The selected section is underlined. Stories has a separate Browse all stories / Choose a story row. Return links say Back to all stories or Back to this song. My picks from Stories returns to your saved songs on the main site. Language-preserving story links from v2 remain included.
+Songs, Song stories and Ways to use them now share the same header, main navigation, landscape size/placement, opening section height, headline scale, button styling and byline. Section-specific navigation appears below the opening section. Existing song durations, selected-language links and Back to this song controls are included.
 
-Validation: JavaScript syntax, identical navigation labels/order and all 23 recording routes passed automated checks. Please check both pages and My picks after upload. The updated layout has not had a full browser preview.
+The three desktop landing pages were visually checked in the browser. Header and landscape dimensions/positions matched across all three. All 23 story recording routes passed automated checks. Mobile CSS is included but was not visually verified on a phone in this revision.
+
+Not yet deployed to songbridgelearning.com.

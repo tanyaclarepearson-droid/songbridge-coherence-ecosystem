@@ -2,6 +2,12 @@
 (()=>{
 'use strict';
 const players=new Map();
+const knownDurations = {"audio/i-am-me-english.mp3": 126.048, "audio/not-yet-still-here-english.mp3": 102.269388, "audio/aun-no-sigo-aqui-spanish.mp3": 134.712, "audio/mariposa-bilingual.mp3": 183.312, "audio/mariposa-spanish.mp3": 152.472, "audio/mariposa-english.mp3": 161.232, "audio/every-voice-belongs-english.mp3": 136.803265, "audio/many-ways-forward-english.mp3": 132.101224, "audio/muchas-formas-de-avanzar-spanish.mp3": 184.920816, "audio/we-come-back-english.mp3": 141.984, "audio/breathe-me-back-to-center-english.mp3": 413.76, "audio/brighter-than-before-english.mp3": 267.833469, "audio/pass-it-on-english-v2.mp3": 204.408, "audio/echo-of-my-name-bilingual.mp3": 137.304, "audio/the-language-dance-english.mp3": 214.944, "audio/language-power-english.mp3": 154.944, "audio/learnings-journey-english.mp3": 170.52, "audio/joy-stays-english.mp3": 159.984, "audio/before-you-ask-them-to-learn-english.mp3": 194.88, "audio/learning-what-holds-english.mp3": 184.944, "audio/the-space-to-learn-english.mp3": 209.952, "audio/find-our-voice-english.mp3": 203.16, "audio/belonging-is-the-compass-english.mp3": 279.504, "audio/finding-our-way-english.mp3": 146.112, "audio/aqui-aqui-right-here.mp3": 29.4, "audio/volvemos.mp3": 162.672, "audio/we-begin-here.mp3": 147.96, "audio/slow-and-fast-earth-in-motion.mp3": 187.2, "audio/unified-field-english.mp3": 283.032};
+function totalDuration(audio) {
+ if(Number.isFinite(audio.duration)&&audio.duration>0)return audio.duration;
+ try{return knownDurations[new URL(audio.getAttribute('src'),location.href).pathname.replace(/^\//,'')] ?? NaN;}catch{return NaN;}
+}
+
 const icon={play:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>',pause:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>'};
 const time=n=>Number.isFinite(n)&&n>=0?Math.floor(n/60)+':'+String(Math.floor(n%60)).padStart(2,'0'):'–:––';
 
@@ -242,12 +248,12 @@ function enhance(a){
   box.querySelector('.sb-player-label').textContent=a.ended?'Listen again':playing?'Now playing':a.currentTime>0?'Paused':'Ready to listen';
   box.querySelector('.sb-player-title').textContent=title;
   box.querySelector('.sb-elapsed').textContent=time(a.currentTime);
-  box.querySelector('.sb-duration').textContent=time(a.duration);
+  box.querySelector('.sb-duration').textContent=time(totalDuration(a));
   const valid=Number.isFinite(a.duration)&&a.duration>0;
   seek.disabled=!valid;seek.max=valid?a.duration:100;
   if(!seeking)seek.value=valid?a.currentTime:0;
   seek.style.setProperty('--played',valid?(Number(seek.value)/a.duration*100)+'%':'0%');
-  seek.setAttribute('aria-valuetext',time(Number(seek.value))+' of '+time(a.duration));
+  seek.setAttribute('aria-valuetext',time(Number(seek.value))+' of '+time(totalDuration(a)));
   if(a===activeCardAudio)updateMini();
   if(a===activeAudio)syncMediaSession();
   mute.textContent=a.muted?'Sound off':'Sound on';mute.setAttribute('aria-label',a.muted?'Unmute':'Mute');mute.setAttribute('aria-pressed',String(a.muted));
@@ -255,7 +261,7 @@ function enhance(a){
  play.onclick=async()=>{if(!a.paused){a.pause();update();return;}status.textContent='';try{await a.play();}catch(e){if(e.name!=='AbortError')status.textContent='Unable to play. Please try again or check the recording.';}update();};
  mute.onclick=()=>{a.muted=!a.muted;};
  restart.onclick=()=>{try{a.currentTime=0;status.textContent='';update();}catch(_){}};
- seek.addEventListener('input',()=>{seeking=true;seek.style.setProperty('--played',(Number(seek.value)/a.duration*100)+'%');seek.setAttribute('aria-valuetext',time(Number(seek.value))+' of '+time(a.duration));box.querySelector('.sb-elapsed').textContent=time(Number(seek.value));});
+ seek.addEventListener('input',()=>{seeking=true;seek.style.setProperty('--played',(Number(seek.value)/a.duration*100)+'%');seek.setAttribute('aria-valuetext',time(Number(seek.value))+' of '+time(totalDuration(a)));box.querySelector('.sb-elapsed').textContent=time(Number(seek.value));});
  seek.addEventListener('change',()=>{if(Number.isFinite(a.duration))a.currentTime=Number(seek.value);seeking=false;update();});
  a.addEventListener('play',()=>claimAudio(a));
  a.addEventListener('playing',()=>claimAudio(a));

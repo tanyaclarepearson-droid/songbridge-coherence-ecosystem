@@ -87,6 +87,7 @@
     if (key !== null) {
       home.hidden = true;world.hidden = false;world.dataset.waysPage = key;
       world.innerHTML = '<nav class="ways-nav" aria-label="Ways to use the songs">' + Object.entries(labels).map(([slug,label]) => '<a href="' + routeFor(slug) + '"' + (slug === key ? ' aria-current="page"' : '') + '>' + label + '</a>').join('') + '</nav>' + pages[key].html;
+      if(key === 'home') world.querySelector('.sb-landing')?.after(world.querySelector('.ways-nav'));
       setupPage(key);
       document.title = pages[key].title;
       document.querySelector('.skip').href = '#worldView';
