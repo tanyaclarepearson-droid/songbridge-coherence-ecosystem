@@ -101,7 +101,7 @@
     }
     document.body.classList.toggle('showing-ways', key !== null);
     document.querySelectorAll('.site-header nav > a').forEach(a => {
-      const selected = key !== null ? a.getAttribute('href') === '#ways' : a.getAttribute('href') === '#collection';
+      const selected = a.dataset.sbNav === (key !== null ? 'ways' : 'songs');
       if (selected) a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
     });
     requestAnimationFrame(() => {

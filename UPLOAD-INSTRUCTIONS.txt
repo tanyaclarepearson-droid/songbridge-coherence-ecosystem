@@ -1,9 +1,11 @@
-SongBridge integration v5 — consistent landing pages
+SongBridge integration v6 — steady navigation
+
+FOR: the existing songbridgelearning.com repository (not Personal Studio).
 
 Unzip and upload all ten top-level website files plus the art and stories folders into your EXISTING songbridgelearning.com GitHub repository. Merge the folders; keep all existing files and media not included here. Commit and let Netlify redeploy. Do not replace your whole repository or use this as a standalone Netlify drop.
 
-Songs, Song stories and Ways to use them now share the same header, main navigation, landscape size/placement, opening section height, headline scale, button styling and byline. Section-specific navigation appears below the opening section. Existing song durations, selected-language links and Back to this song controls are included.
+v6 fixes the navigation jump between Ways to use them and The songs. It removes a legacy 12-pixel top offset on wider screens and makes the global The songs link return to the Songs opening view. Existing Explore, collection, My picks, and individual-song routes remain available. The shared navigation keeps its active-section indication. Cache versions are updated.
 
-The three desktop landing pages were visually checked in the browser. Header and landscape dimensions/positions matched across all three. All 23 story recording routes passed automated checks. Mobile CSS is included but was not visually verified on a phone in this revision.
+Checked locally with existing site styles and scripts at 1440-pixel and 390-pixel viewport widths. Header navigation coordinates match before and after Ways → Songs. The Explore shortcut still scrolls to its section. JavaScript syntax and ZIP integrity passed. No deployment was performed.
 
-Not yet deployed to songbridgelearning.com.
+The consistent landing layouts, story pages, song durations, selected-language links, and Back to this song controls from v5 are retained. Existing audio/media files are not repeated in this update; keep them in your repository.

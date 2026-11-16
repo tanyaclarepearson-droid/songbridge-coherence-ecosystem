@@ -1,4 +1,6 @@
 /* Shared SongBridge navigation on the song collection and story pages. */
+/* Keep the sticky header anchored at the same position on every route. */
+body{padding-top:0}
 .sb-global-header{position:sticky;top:0;z-index:30;box-sizing:border-box;width:100%;max-width:none;margin:0;padding:22px max(24px,calc((100vw - 1212px)/2));display:flex;align-items:center;justify-content:space-between;gap:24px;background:#f7f3e9;border-bottom:1px solid #dddcd0;color:#263e3a;font:13px/1.55 Arial,Helvetica,sans-serif}
 .sb-global-header .brand{position:relative;display:flex;align-items:center;gap:9px;color:#263e3a;text-decoration:none;font:bold 25px/1.55 Georgia,serif;letter-spacing:-1px;white-space:nowrap}
 .sb-global-header .brandmark{display:inline;width:auto;height:auto;font-size:35px;color:#c9654b;flex-shrink:0}
