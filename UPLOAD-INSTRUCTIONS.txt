@@ -1,0 +1,18 @@
+SongBridge Stories integration — November 16, 2026
+
+This is an UPDATE for the existing songbridgelearning.com repository, not a complete replacement website or standalone Netlify drop.
+
+1. Unzip this package.
+2. Open the GitHub repository connected to your existing songbridgelearning.com Netlify site.
+3. At the repository's top level, use Add file > Upload files.
+4. Drag in index.html, app.js, songbridge-stories.css, and the entire stories folder together. Keep the stories folder intact; do not upload its contents at the repository's top level.
+5. Commit the changes. Allow the existing Netlify deployment to finish.
+6. Open songbridgelearning.com and choose Song stories. Check the homepage Read the story link, a Behind this song link, a language cover choice, and Copy story link.
+
+Keep all other existing repository files and folders, including audio, covers, art, timings, scripts, and styles. No Netlify settings or domain changes are needed.
+
+Contents: revised homepage and app script, new stylesheet, stories/index.html, artwork, and icons. Includes 18 stories and links from 23 matching recordings. Songs without a story retain their existing controls.
+
+The stories retain their original wording, artwork, audio and lyrics. The public page adds story-link copying and a route back to the song collection; authoring guidance and the separate HTML-download control are omitted from this integrated edition. Print/PDF and Copy introduction remain available.
+
+Prepared from the live homepage and app.js retrieved November 16, 2026, and the SongBridge Stories project's fourth source version. This package has not been deployed to songbridgelearning.com.
