@@ -1,0 +1,16 @@
+/* Shared SongBridge navigation on the song collection and story pages. */
+.sb-global-header{position:sticky;top:0;z-index:30;box-sizing:border-box;width:100%;max-width:none;margin:0;padding:22px max(24px,calc((100vw - 1212px)/2));display:flex;align-items:center;justify-content:space-between;gap:24px;background:#f7f3e9;border-bottom:1px solid #dddcd0;color:#263e3a;font:13px/1.55 Arial,Helvetica,sans-serif}
+.sb-global-header .brand{position:relative;display:flex;align-items:center;gap:9px;color:#263e3a;text-decoration:none;font:bold 25px/1.55 Georgia,serif;letter-spacing:-1px;white-space:nowrap}
+.sb-global-header .brandmark{display:inline;width:auto;height:auto;font-size:35px;color:#c9654b;flex-shrink:0}
+.sb-global-header .brand-sub{position:absolute;font:8px Arial;letter-spacing:3px;bottom:-5px;left:44px}
+.sb-global-header nav{display:flex;align-items:center;flex-wrap:wrap;gap:24px;font:13px/1.55 Arial,Helvetica,sans-serif}
+.sb-global-header nav a{color:#263e3a;text-decoration:none}
+.sb-global-header nav a[aria-current=page]{text-decoration:underline;text-underline-offset:7px;text-decoration-thickness:2px}
+.sb-global-header nav button,.sb-global-header .sb-picks-link{border:1px solid #dddcd0;border-radius:22px;padding:9px 15px;background:transparent;color:#263e3a;font:13px Arial;white-space:nowrap}
+.sb-global-header nav button span,.sb-global-header .sb-picks-link span{display:inline-grid;place-items:center;background:#e5e9dd;border-radius:50%;width:22px;height:22px;margin-left:7px}
+.sb-global-header a:focus-visible,.sb-global-header button:focus-visible{outline:3px solid #bd8b2f;outline-offset:5px}
+.sb-story-navigation{max-width:1160px;margin:0 auto;padding:18px 0;display:flex;gap:16px;align-items:center;justify-content:flex-end;font-size:13px;border-bottom:1px solid #d7ded5}
+.sb-story-navigation>a{margin-right:auto}.sb-story-navigation select{max-width:260px}
+html{scroll-padding-top:130px}.story,.collection{scroll-margin-top:15px}
+@media(max-width:760px){.sb-global-header{padding:16px 20px;flex-wrap:wrap;gap:20px}.sb-global-header nav{width:100%;gap:12px 18px;justify-content:flex-start}.sb-global-header nav button,.sb-global-header .sb-picks-link{padding:7px 10px}.sb-story-navigation{margin:0 20px;flex-wrap:wrap;justify-content:flex-start}.sb-story-navigation>a{width:100%}.sb-story-navigation select{max-width:100%;flex:1;min-width:0}html{scroll-padding-top:180px}.art-column{top:180px}}
+@media print{.sb-global-header,.sb-story-navigation{display:none!important}}

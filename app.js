@@ -1,5 +1,5 @@
 const SONGBRIDGE_STORIES = {"0": "i-am-me", "1": "not-yet-still-here", "20": "not-yet-still-here", "2": "mariposa", "21": "mariposa", "22": "mariposa", "3": "every-voice-belongs", "4": "many-ways-forward", "23": "many-ways-forward", "5": "we-come-back-and-volvemos", "6": "breathe-me-back-to-center", "7": "brighter-than-before", "8": "pass-it-on", "9": "echo-of-my-name", "10": "the-language-dance", "11": "language-power", "12": "learnings-journey", "13": "joy-stays", "18": "belonging-is-the-compass", "24": "aqui-aqui-right-here", "25": "we-come-back-and-volvemos", "26": "we-begin-here", "27": "slow-and-fast-earth-in-motion"};
-function storyLink(s){return SONGBRIDGE_STORIES[s.id]?`<a class="sb-story-link" href="stories/#${SONGBRIDGE_STORIES[s.id]}">Behind this song <span aria-hidden="true">↗</span></a>`:"";}
+function storyLink(s){return SONGBRIDGE_STORIES[s.id]?`<a class="sb-story-link" href="stories/?song=${s.id}#${SONGBRIDGE_STORIES[s.id]}">Behind this song <span aria-hidden="true">↗</span></a>`:"";}
 let lyricPDFPromise;
 function loadLyricPDFs(){
   if(typeof LYRIC_PDFS !== 'undefined') return Promise.resolve(LYRIC_PDFS);
