@@ -1,13 +1,18 @@
-SongBridge v7 — selected songs in your personal studio
+SongBridge v8 — spaced song links and selected Studio resources
 
 FOR: the existing songbridgelearning.com repository.
 
-Update Personal Studio to v27 first. Merge all included website files and the art/stories folders into your EXISTING SongBridge repository. Keep every existing audio, lyrics, data, image, and other file not included here. Do not replace the whole repository or deploy this partial patch as a standalone site.
+Merge the included website files and art/stories folders into the EXISTING repository. Keep all existing audio, lyrics, data, images, and files not included here. This is a PARTIAL UPDATE, not a standalone site; do not replace the repository with only this folder.
 
-New files required: resource-contract.js, resource-send.js, resource-send.css. Updated entry files: index.html, app.js. Existing v6 navigation, story pages, player, and art are retained.
+For the link-overlap fix alone, update these three root files together:
+- index.html
+- songbridge-player.js
+- songbridge-player.css
 
-On a song, choose Bring into my studio. Review/edit its title, language, moment, audience and suggested use, then choose Review in my studio. Sign in there and explicitly Save to my connected shelf. The hub stores a private song card and a link to that exact song; lyrics and audio remain in SongBridge. Re-sending the same song replaces its earlier card.
+The shared song-card layout now keeps Lyrics & ideas, Project lyrics, and Behind this song within one wrapping resource group. Links have 44-pixel minimum tap height. This applies to the main collection and the Ways to use them song cards, including cards rebuilt after filtering.
 
-If the handoff window is blocked, download the selected resource here, then import it under Connected apps in Personal Studio. Sign in before receiving a card, or download it before using an email sign-in link.
+The v7 Bring into my studio feature remains included. On a song, review its selected planning summary, then explicitly save it in Personal Studio. Lyrics and audio remain here.
 
-Validation: song selection test and syntax checks pass. Shared sender tests pass in Talk Tuner; hub receiver and database contract tests pass. Full live-song playback and the signed-in phone journey were not retested here. This patch preserves the original supplied media/art files and does not bundle the entire live site's audio/data.
+Personal Studio v28 is the companion update for private account plans. Its My planner → Try a connected plan includes the Brighter together example.
+
+The overlap was diagnosed on the live site as a story link falling into the same subgrid row as the lyric controls. The fix is in this update package. Final desktop/phone visual verification follows upload; source checks and the existing song handoff test pass.

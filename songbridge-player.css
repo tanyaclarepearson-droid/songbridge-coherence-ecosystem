@@ -41,7 +41,10 @@
 .song-info h3{font:normal 23px/1.2 Georgia,serif;letter-spacing:-.5px;margin:7px 0 6px;color:#263e3a;text-wrap:balance}
 .song-info p{font-size:14px;line-height:1.5;color:#52645b;margin:0 0 8px;text-wrap:pretty}
 /* One compact action row, with wrapping only where needed. */
-.song-info .sb-song-actions{display:flex;align-items:center;flex-wrap:wrap;gap:0 12px;margin-top:4px}
+.song-info .sb-song-actions{display:flex;align-items:center;flex-wrap:wrap;gap:4px 16px;margin-top:6px;min-width:0}
+.song-info .sb-song-actions>.sb-story-link{display:inline-flex;align-items:center;gap:5px;min-height:44px;max-width:100%;margin:0;padding:5px 0;box-sizing:border-box;font-size:13px;line-height:1.35;overflow-wrap:anywhere}
+.song-info .sb-song-actions>.open{min-height:44px;box-sizing:border-box}
+.song-info .sb-song-actions>a:focus-visible,.song-info .sb-song-actions>button:focus-visible{outline:2px solid #8c632d;outline-offset:3px}
 .song-info .open{display:inline-flex;align-items:center;min-height:36px;max-width:100%;padding:5px 0;border:0;border-radius:0;background:transparent;font-size:13px;line-height:1.35;text-align:left;text-decoration:none;color:#285e52}
 .song-info .open:hover{text-decoration:underline;text-underline-offset:4px;color:#8c522f}
 .song-info [data-display]{display:inline-flex;margin-top:0}
