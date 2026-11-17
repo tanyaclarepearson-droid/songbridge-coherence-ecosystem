@@ -1,11 +1,13 @@
-SongBridge integration v6 — steady navigation
+SongBridge v7 — selected songs in your personal studio
 
-FOR: the existing songbridgelearning.com repository (not Personal Studio).
+FOR: the existing songbridgelearning.com repository.
 
-Unzip and upload all ten top-level website files plus the art and stories folders into your EXISTING songbridgelearning.com GitHub repository. Merge the folders; keep all existing files and media not included here. Commit and let Netlify redeploy. Do not replace your whole repository or use this as a standalone Netlify drop.
+Update Personal Studio to v27 first. Merge all included website files and the art/stories folders into your EXISTING SongBridge repository. Keep every existing audio, lyrics, data, image, and other file not included here. Do not replace the whole repository or deploy this partial patch as a standalone site.
 
-v6 fixes the navigation jump between Ways to use them and The songs. It removes a legacy 12-pixel top offset on wider screens and makes the global The songs link return to the Songs opening view. Existing Explore, collection, My picks, and individual-song routes remain available. The shared navigation keeps its active-section indication. Cache versions are updated.
+New files required: resource-contract.js, resource-send.js, resource-send.css. Updated entry files: index.html, app.js. Existing v6 navigation, story pages, player, and art are retained.
 
-Checked locally with existing site styles and scripts at 1440-pixel and 390-pixel viewport widths. Header navigation coordinates match before and after Ways → Songs. The Explore shortcut still scrolls to its section. JavaScript syntax and ZIP integrity passed. No deployment was performed.
+On a song, choose Bring into my studio. Review/edit its title, language, moment, audience and suggested use, then choose Review in my studio. Sign in there and explicitly Save to my connected shelf. The hub stores a private song card and a link to that exact song; lyrics and audio remain in SongBridge. Re-sending the same song replaces its earlier card.
 
-The consistent landing layouts, story pages, song durations, selected-language links, and Back to this song controls from v5 are retained. Existing audio/media files are not repeated in this update; keep them in your repository.
+If the handoff window is blocked, download the selected resource here, then import it under Connected apps in Personal Studio. Sign in before receiving a card, or download it before using an email sign-in link.
+
+Validation: song selection test and syntax checks pass. Shared sender tests pass in Talk Tuner; hub receiver and database contract tests pass. Full live-song playback and the signed-in phone journey were not retested here. This patch preserves the original supplied media/art files and does not bundle the entire live site's audio/data.
